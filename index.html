@@ -1,0 +1,1826 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="HUDA is a modern stoa for history, literature, philosophy, music, cinema, law, and sociology."
+    />
+    <meta name="theme-color" content="#e7e4dc" />
+    <meta property="og:title" content="HUDA — A Modern Stoa" />
+    <meta
+      property="og:description"
+      content="An archive of what human beings have remembered, imagined, argued, and governed."
+    />
+    <meta property="og:type" content="website" />
+    <title>HUDA — A Modern Stoa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --stone: #e7e4dc;
+        --paper: #f2f0e9;
+        --lampblack: #171716;
+        --clay: #934a38;
+        --bronze: #4f675d;
+        --ash: #746f66;
+        --line: #beb8ab;
+        --line-dark: #8f897e;
+        --serif: "Source Serif 4", Georgia, serif;
+        --greek: "Gentium Plus", "Palatino Linotype", serif;
+        --sans: "IBM Plex Sans", Arial, sans-serif;
+        --mono: "IBM Plex Mono", Consolas, monospace;
+        --measure: 68ch;
+        --page: min(1440px, calc(100% - 2rem));
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5.3rem;
+      }
+
+      body {
+        margin: 0;
+        color: var(--lampblack);
+        background:
+          linear-gradient(90deg, transparent 0 49.94%, rgba(23, 23, 22, 0.035) 50%, transparent 50.06%),
+          var(--stone);
+        font-family: var(--serif);
+        font-size: 18px;
+        line-height: 1.65;
+        text-rendering: optimizeLegibility;
+      }
+
+      a {
+        color: inherit;
+        text-decoration-color: var(--clay);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
+      }
+
+      a:hover {
+        color: var(--clay);
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      button,
+      summary,
+      select {
+        cursor: pointer;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--clay);
+        outline-offset: 4px;
+      }
+
+      .skip-link {
+        position: fixed;
+        z-index: 100;
+        top: 0.75rem;
+        left: 0.75rem;
+        padding: 0.55rem 0.8rem;
+        color: var(--paper);
+        background: var(--lampblack);
+        font: 500 0.76rem var(--sans);
+        transform: translateY(-180%);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .site-header {
+        position: sticky;
+        z-index: 20;
+        top: 0;
+        display: grid;
+        grid-template-columns: minmax(11rem, 0.8fr) auto minmax(28rem, 1.4fr);
+        align-items: center;
+        width: 100%;
+        min-height: 5.25rem;
+        border-bottom: 1px solid var(--line-dark);
+        background: rgba(231, 228, 220, 0.94);
+        backdrop-filter: blur(14px);
+      }
+
+      .wordmark {
+        display: flex;
+        align-items: baseline;
+        gap: 0.7rem;
+        height: 100%;
+        padding: 1.1rem 1.5rem;
+        border-right: 1px solid var(--line);
+        text-decoration: none;
+      }
+
+      .wordmark strong {
+        color: var(--clay);
+        font: 600 1.45rem/1 var(--greek);
+        letter-spacing: 0.16em;
+      }
+
+      .wordmark span {
+        color: var(--ash);
+        font: 500 0.64rem/1.2 var(--mono);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .header-motto {
+        padding: 0 1.4rem;
+        color: var(--bronze);
+        font: 600 0.76rem var(--greek);
+        letter-spacing: 0.12em;
+        white-space: nowrap;
+      }
+
+      .site-nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: clamp(0.7rem, 2vw, 1.7rem);
+        min-height: 100%;
+        padding: 0.8rem 1.5rem;
+        border-left: 1px solid var(--line);
+        font: 500 0.74rem var(--sans);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .site-nav a {
+        text-decoration: none;
+      }
+
+      main {
+        overflow: hidden;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.18fr) minmax(23rem, 0.82fr);
+        min-height: calc(100vh - 5.25rem);
+        border-bottom: 1px solid var(--line-dark);
+      }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: clamp(3rem, 8vw, 8rem) clamp(1.5rem, 6vw, 6.5rem) 2.5rem;
+      }
+
+      .eyebrow {
+        margin: 0 0 1.15rem;
+        color: var(--clay);
+        font: 500 0.7rem var(--mono);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        max-width: 12ch;
+        margin: 0;
+        font: 400 clamp(3.6rem, 8.8vw, 9rem) / 0.84 var(--greek);
+        letter-spacing: -0.055em;
+      }
+
+      .hero h1 em {
+        display: block;
+        margin-top: 0.18em;
+        color: var(--clay);
+        font-style: italic;
+        font-weight: 400;
+      }
+
+      .hero-thesis {
+        max-width: 29ch;
+        margin: 2.4rem 0 0;
+        font-size: clamp(1.25rem, 2.1vw, 1.85rem);
+        line-height: 1.36;
+      }
+
+      .hero-foot {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        margin-top: 4rem;
+        padding-top: 1.1rem;
+        border-top: 1px solid var(--line);
+        color: var(--ash);
+        font: 0.68rem/1.55 var(--mono);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .inscription {
+        display: grid;
+        place-items: center;
+        min-height: 100%;
+        padding: clamp(2rem, 5vw, 5rem);
+        color: var(--paper);
+        background: var(--lampblack);
+      }
+
+      .inscription figure {
+        width: min(100%, 34rem);
+        margin: 0;
+      }
+
+      .inscription svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .inscription figcaption {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+        margin-top: 1.2rem;
+        padding-top: 0.9rem;
+        border-top: 1px solid #4b4b47;
+        color: #aaa69c;
+        font: 0.68rem/1.55 var(--mono);
+      }
+
+      .inscription figcaption strong {
+        color: #dad5c9;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+      }
+
+      .section {
+        width: var(--page);
+        margin: 0 auto;
+        padding: clamp(5rem, 9vw, 9rem) 0;
+      }
+
+      .section + .section {
+        border-top: 1px solid var(--line-dark);
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(11rem, 0.65fr) minmax(0, 1.35fr);
+        gap: clamp(2rem, 6vw, 8rem);
+        margin-bottom: clamp(2.5rem, 5vw, 5rem);
+      }
+
+      .section-index {
+        color: var(--ash);
+        font: 500 0.7rem var(--mono);
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .section-head h2 {
+        max-width: 16ch;
+        margin: 0;
+        font: 400 clamp(2.7rem, 5.5vw, 5.5rem) / 0.96 var(--greek);
+        letter-spacing: -0.03em;
+      }
+
+      .section-head h2 span {
+        color: var(--clay);
+        font-style: italic;
+      }
+
+      .section-intro {
+        max-width: 53ch;
+        margin: 1.5rem 0 0;
+        color: #3e3d39;
+        font-size: 1.08rem;
+      }
+
+      .feature {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(14rem, 19rem);
+        border-top: 3px solid var(--lampblack);
+        border-bottom: 1px solid var(--line-dark);
+      }
+
+      .feature-main {
+        padding: clamp(2rem, 5vw, 5rem) clamp(1.25rem, 5vw, 5rem) clamp(2.5rem, 5vw, 5rem) 0;
+      }
+
+      .kicker,
+      .meta-line,
+      .entry-id,
+      .badge,
+      .apparatus dt,
+      .archive-label {
+        font-family: var(--mono);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .kicker {
+        margin: 0 0 2rem;
+        color: var(--clay);
+        font-size: 0.72rem;
+      }
+
+      .feature h3 {
+        max-width: 13ch;
+        margin: 0 0 1.4rem;
+        font: 400 clamp(2.4rem, 5vw, 5.2rem) / 0.98 var(--serif);
+        letter-spacing: -0.04em;
+      }
+
+      .feature-deck {
+        max-width: 46ch;
+        margin: 0;
+        font-size: clamp(1.12rem, 1.8vw, 1.4rem);
+        line-height: 1.48;
+      }
+
+      .read-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 2.5rem;
+        color: var(--clay);
+        font: 600 0.75rem var(--sans);
+        letter-spacing: 0.08em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .read-link::after {
+        content: "→";
+        font-size: 1.2rem;
+        transition: transform 160ms ease;
+      }
+
+      .read-link:hover::after {
+        transform: translateX(0.3rem);
+      }
+
+      .apparatus {
+        padding: 2.25rem 0 2.25rem 2rem;
+        border-left: 1px solid var(--line-dark);
+      }
+
+      .apparatus-title {
+        margin: 0 0 1.5rem;
+        color: var(--bronze);
+        font: 500 0.68rem var(--mono);
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .apparatus dl {
+        margin: 0;
+      }
+
+      .apparatus dt {
+        margin-top: 1rem;
+        color: var(--ash);
+        font-size: 0.62rem;
+      }
+
+      .apparatus dd {
+        margin: 0.2rem 0 0;
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+
+      .apparatus a {
+        overflow-wrap: anywhere;
+      }
+
+      .subjects-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-top: 1px solid var(--line-dark);
+        border-left: 1px solid var(--line-dark);
+      }
+
+      .subject-card {
+        min-height: 15rem;
+        padding: 1.4rem;
+        color: inherit;
+        border: 0;
+        border-right: 1px solid var(--line-dark);
+        border-bottom: 1px solid var(--line-dark);
+        background: transparent;
+        text-align: left;
+        transition:
+          background-color 160ms ease,
+          color 160ms ease;
+      }
+
+      .subject-card:hover,
+      .subject-card:focus-visible {
+        color: var(--paper);
+        background: var(--lampblack);
+      }
+
+      .subject-card .number {
+        display: block;
+        color: var(--ash);
+        font: 0.66rem var(--mono);
+      }
+
+      .subject-card .greek {
+        display: block;
+        margin: 2.7rem 0 0.55rem;
+        color: var(--clay);
+        font: 600 1rem var(--greek);
+        letter-spacing: 0.11em;
+      }
+
+      .subject-card strong {
+        display: block;
+        font: 400 1.65rem var(--serif);
+      }
+
+      .subject-card small {
+        display: block;
+        margin-top: 0.8rem;
+        color: var(--ash);
+        font: 0.7rem/1.4 var(--mono);
+      }
+
+      .subject-card:hover .number,
+      .subject-card:hover small,
+      .subject-card:focus-visible .number,
+      .subject-card:focus-visible small {
+        color: #b7b1a7;
+      }
+
+      .archive-toolbar {
+        display: grid;
+        grid-template-columns: minmax(15rem, 1fr) repeat(2, minmax(10rem, 0.32fr)) auto;
+        gap: 1rem;
+        align-items: end;
+        margin-bottom: 2rem;
+        padding: 1.2rem;
+        border: 1px solid var(--line-dark);
+        background: rgba(242, 240, 233, 0.52);
+      }
+
+      .field label {
+        display: block;
+        margin-bottom: 0.4rem;
+        color: var(--ash);
+        font: 500 0.62rem var(--mono);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .field input,
+      .field select {
+        width: 100%;
+        height: 2.9rem;
+        padding: 0 0.75rem;
+        color: var(--lampblack);
+        border: 1px solid var(--line-dark);
+        border-radius: 0;
+        background: var(--paper);
+        font: 0.88rem var(--sans);
+      }
+
+      .clear-button {
+        height: 2.9rem;
+        padding: 0 1rem;
+        color: var(--paper);
+        border: 1px solid var(--lampblack);
+        background: var(--lampblack);
+        font: 500 0.7rem var(--sans);
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+
+      .result-note {
+        margin: 0 0 1rem;
+        color: var(--ash);
+        font: 0.68rem var(--mono);
+      }
+
+      .entries {
+        border-top: 1px solid var(--line-dark);
+      }
+
+      .entry-record {
+        border-bottom: 1px solid var(--line-dark);
+      }
+
+      .entry-record[hidden] {
+        display: none;
+      }
+
+      .entry-record > summary {
+        display: grid;
+        grid-template-columns: minmax(8rem, 0.42fr) minmax(0, 1.35fr) minmax(10rem, 0.45fr);
+        gap: 2rem;
+        align-items: start;
+        padding: 1.45rem 0;
+        list-style: none;
+      }
+
+      .entry-record > summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .entry-record > summary::after {
+        content: "+";
+        position: absolute;
+        right: 0;
+        color: var(--clay);
+        font: 1.2rem var(--mono);
+      }
+
+      .entry-record > summary {
+        position: relative;
+        padding-right: 2rem;
+      }
+
+      .entry-record[open] > summary::after {
+        content: "−";
+      }
+
+      .entry-id {
+        color: var(--ash);
+        font-size: 0.64rem;
+      }
+
+      .entry-title {
+        margin: 0;
+        font: 400 clamp(1.45rem, 2.4vw, 2.2rem) / 1.12 var(--serif);
+        letter-spacing: -0.018em;
+      }
+
+      .entry-abstract {
+        display: block;
+        max-width: 52ch;
+        margin-top: 0.65rem;
+        color: #55524c;
+        font-size: 0.92rem;
+        line-height: 1.5;
+      }
+
+      .entry-record > summary:hover .entry-title {
+        color: var(--clay);
+      }
+
+      .summary-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        justify-content: flex-end;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 1.55rem;
+        padding: 0.2rem 0.46rem;
+        border: 1px solid var(--line-dark);
+        color: var(--ash);
+        font-size: 0.56rem;
+      }
+
+      .badge.language {
+        color: var(--bronze);
+        border-color: var(--bronze);
+      }
+
+      .entry-body {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(14rem, 19rem);
+        border-top: 1px solid var(--line);
+        background: rgba(242, 240, 233, 0.48);
+      }
+
+      .prose {
+        max-width: var(--measure);
+        padding: clamp(2rem, 5vw, 4.5rem) clamp(1.5rem, 6vw, 6rem) clamp(3rem, 6vw, 6rem);
+      }
+
+      .prose p {
+        margin: 0 0 1.35em;
+      }
+
+      .prose p:first-child::first-letter {
+        float: left;
+        margin: 0.09em 0.12em 0 0;
+        color: var(--clay);
+        font: 600 3.5em/0.72 var(--greek);
+      }
+
+      .prose .editorial-note {
+        padding-left: 1rem;
+        border-left: 2px solid var(--bronze);
+        color: #4e4d48;
+        font-style: italic;
+      }
+
+      .source-list {
+        margin: 0;
+        padding-left: 1.1rem;
+      }
+
+      .source-list li + li {
+        margin-top: 0.65rem;
+      }
+
+      .empty-state {
+        display: none;
+        padding: 3rem 0;
+        border-bottom: 1px solid var(--line-dark);
+        color: var(--ash);
+        font-style: italic;
+      }
+
+      .empty-state.visible {
+        display: block;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.52fr);
+        gap: clamp(3rem, 8vw, 9rem);
+      }
+
+      .about-grid h3 {
+        max-width: 16ch;
+        margin: 0 0 1.5rem;
+        font: 400 clamp(2rem, 4vw, 4rem) / 1.05 var(--greek);
+      }
+
+      .about-grid p {
+        max-width: 61ch;
+      }
+
+      .principles {
+        margin: 0;
+        padding: 0;
+        border-top: 1px solid var(--line-dark);
+        list-style: none;
+      }
+
+      .principles li {
+        display: grid;
+        grid-template-columns: 2rem 1fr;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--line-dark);
+        font-size: 0.92rem;
+      }
+
+      .principles span {
+        color: var(--clay);
+        font: 0.68rem var(--mono);
+      }
+
+      .site-footer {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 2rem;
+        padding: 2.5rem max(1rem, calc((100% - min(1440px, calc(100% - 2rem))) / 2));
+        color: #bbb5a9;
+        background: var(--lampblack);
+        font: 0.68rem/1.6 var(--mono);
+      }
+
+      .site-footer strong {
+        color: var(--paper);
+        font: 600 1rem var(--greek);
+        letter-spacing: 0.1em;
+      }
+
+      .site-footer a {
+        color: var(--paper);
+      }
+
+      @media (max-width: 1050px) {
+        .site-header {
+          grid-template-columns: auto 1fr;
+        }
+
+        .header-motto {
+          text-align: right;
+        }
+
+        .site-nav {
+          grid-column: 1 / -1;
+          justify-content: flex-start;
+          min-height: auto;
+          overflow-x: auto;
+          border-top: 1px solid var(--line);
+          border-left: 0;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .subjects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .archive-toolbar {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        :root {
+          --page: calc(100% - 1.4rem);
+        }
+
+        body {
+          font-size: 17px;
+          background: var(--stone);
+        }
+
+        .site-header {
+          position: relative;
+        }
+
+        .wordmark {
+          padding-left: 0.8rem;
+        }
+
+        .wordmark span {
+          display: none;
+        }
+
+        .header-motto {
+          padding-right: 0.8rem;
+          font-size: 0.62rem;
+        }
+
+        .site-nav {
+          display: grid;
+          grid-template-columns: repeat(3, auto);
+          justify-content: space-between;
+          padding: 0.75rem 0.8rem;
+          gap: 0.55rem 1.1rem;
+          overflow-x: visible;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy {
+          min-height: 38rem;
+          padding: 4rem 1rem 1.5rem;
+        }
+
+        .hero h1 {
+          font-size: clamp(3.7rem, 20vw, 6rem);
+        }
+
+        .hero-foot {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .inscription {
+          padding: 2.5rem 1rem;
+        }
+
+        .section-head {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .feature,
+        .entry-body {
+          grid-template-columns: 1fr;
+        }
+
+        .feature-main {
+          padding-right: 0;
+        }
+
+        .apparatus {
+          padding: 1.6rem 0;
+          border-top: 1px solid var(--line-dark);
+          border-left: 0;
+        }
+
+        .subjects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .subject-card {
+          min-height: 11rem;
+        }
+
+        .subject-card .greek {
+          margin-top: 1.7rem;
+        }
+
+        .archive-toolbar {
+          grid-template-columns: 1fr;
+        }
+
+        .entry-record > summary {
+          grid-template-columns: 1fr;
+          gap: 0.65rem;
+        }
+
+        .summary-meta {
+          justify-content: flex-start;
+        }
+
+        .prose {
+          padding-right: 0.75rem;
+          padding-left: 0.75rem;
+        }
+
+        .about-grid,
+        .site-footer {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="HUDA home">
+        <strong>HUDA</strong>
+        <span>A Modern Stoa</span>
+      </a>
+      <div class="header-motto" lang="grc">ΜΝΗΜΗ · ΛΟΓΟΣ · ΠΟΙΗΣΙΣ</div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#stoa">Essays</a>
+        <a href="#pinakes">Notes</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#pinakes">Archive</a>
+        <a href="#search">Search</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div>
+            <p class="eyebrow">Vol. I · An open humanities commonplace</p>
+            <h1 id="hero-title">A Modern <em>Stoa</em></h1>
+            <p class="hero-thesis">
+              An archive of what human beings have remembered, imagined, argued,
+              and governed.
+            </p>
+          </div>
+          <div class="hero-foot">
+            <span>Memory · Reason · Making</span>
+            <span>English first · Many languages welcome</span>
+          </div>
+        </div>
+
+        <div class="inscription">
+          <figure>
+            <svg
+              viewBox="0 0 620 720"
+              role="img"
+              aria-labelledby="inscription-title inscription-desc"
+            >
+              <title id="inscription-title">HUDA editorial inscription</title>
+              <desc id="inscription-desc">
+                A contemporary grid of Greek words for memory, reason, and making.
+              </desc>
+              <rect x="18" y="18" width="584" height="684" fill="none" stroke="#746f66" />
+              <path d="M18 92H602M18 630H602M96 18V702M524 18V702" stroke="#4f675d" />
+              <g fill="#e7e4dc" font-family="Gentium Plus, serif" text-anchor="middle">
+                <text x="310" y="210" font-size="55" letter-spacing="16">ΜΝΗΜΗ</text>
+                <text x="310" y="360" font-size="55" letter-spacing="17">ΛΟΓΟΣ</text>
+                <text x="310" y="510" font-size="55" letter-spacing="13">ΠΟΙΗΣΙΣ</text>
+              </g>
+              <g fill="#934a38">
+                <circle cx="96" cy="92" r="5" />
+                <circle cx="524" cy="92" r="5" />
+                <circle cx="96" cy="630" r="5" />
+                <circle cx="524" cy="630" r="5" />
+              </g>
+              <g fill="#aaa69c" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="3">
+                <text x="126" y="62">HUDA · FIELD 01</text>
+                <text x="126" y="669">MEMORY / REASON / MAKING</text>
+              </g>
+              <path
+                d="M145 252H475M145 402H475M145 552H475"
+                stroke="#383936"
+                stroke-dasharray="2 8"
+              />
+            </svg>
+            <figcaption>
+              <strong>FIG. 01</strong>
+              <span>
+                A contemporary inscription for the site’s three editorial
+                operations—not an ancient quotation.
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="stoa" aria-labelledby="stoa-title">
+        <header class="section-head">
+          <div class="section-index">I · The Stoa / Essays & arguments</div>
+          <div>
+            <h2 id="stoa-title">Knowledge begins by <span>asking after</span>.</h2>
+            <p class="section-intro">
+              The Stoa holds the longer forms: essays, arguments, and readings in
+              which evidence remains visible and uncertainty is not edited away.
+            </p>
+          </div>
+        </header>
+
+        <article class="feature">
+          <div class="feature-main">
+            <p class="kicker">Featured essay · History</p>
+            <h3>History Begins as Inquiry</h3>
+            <p class="feature-deck">
+              Before history became a shelf of settled facts, <i lang="grc">historia</i>
+              named the work of finding out. What changes when inquiry—not
+              chronology—becomes the discipline’s first principle?
+            </p>
+            <a class="read-link" href="#history-inquiry">Read the essay</a>
+          </div>
+          <aside class="apparatus" aria-label="Featured essay apparatus">
+            <p class="apparatus-title">Marginal apparatus</p>
+            <dl>
+              <dt>Discussed period</dt>
+              <dd>5th century BCE</dd>
+              <dt>Places</dt>
+              <dd>Halicarnassus · Athens</dd>
+              <dt>Language</dt>
+              <dd>English / Greek terms</dd>
+              <dt>Permanent ID</dt>
+              <dd>HUDA–2026–001</dd>
+              <dt>Reading time</dt>
+              <dd>4 minutes</dd>
+            </dl>
+          </aside>
+        </article>
+      </section>
+
+      <section class="section" id="subjects" aria-labelledby="subjects-title">
+        <header class="section-head">
+          <div class="section-index">II · Seven fields / One conversation</div>
+          <div>
+            <h2 id="subjects-title">The archive has <span>seven doors</span>.</h2>
+            <p class="section-intro">
+              The divisions are practical, not absolute. A film can be a legal
+              record; a song can carry social theory; an archive can become
+              literature.
+            </p>
+          </div>
+        </header>
+
+        <div class="subjects-grid" aria-label="Filter the archive by subject">
+          <button class="subject-card" type="button" data-filter-subject="history">
+            <span class="number">01</span>
+            <span class="greek" lang="grc">ἹΣΤΟΡΙΑ</span>
+            <strong>History</strong>
+            <small>Inquiry · memory · evidence</small>
+          </button>
+          <button class="subject-card" type="button" data-filter-subject="literature">
+            <span class="number">02</span>
+            <span class="greek" lang="grc">ΠΟΙΗΣΙΣ</span>
+            <strong>Literature</strong>
+            <small>Making · voice · form</small>
+          </button>
+          <button class="subject-card" type="button" data-filter-subject="philosophy">
+            <span class="number">03</span>
+            <span class="greek" lang="grc">ΛΟΓΟΣ</span>
+            <strong>Philosophy</strong>
+            <small>Reason · account · relation</small>
+          </button>
+          <button class="subject-card" type="button" data-filter-subject="music">
+            <span class="number">04</span>
+            <span class="greek" lang="grc">ΜΟΥΣΙΚΗ</span>
+            <strong>Music</strong>
+            <small>Measure · listening · time</small>
+          </button>
+          <button class="subject-card" type="button" data-filter-subject="cinema">
+            <span class="number">05</span>
+            <span class="greek" lang="grc">ΕΙΚΩΝ</span>
+            <strong>Cinema</strong>
+            <small>Image · cut · duration</small>
+          </button>
+          <button class="subject-card" type="button" data-filter-subject="law">
+            <span class="number">06</span>
+            <span class="greek" lang="grc">ΝΟΜΟΣ</span>
+            <strong>Law</strong>
+            <small>Custom · statute · judgment</small>
+          </button>
+          <button class="subject-card" type="button" data-filter-subject="sociology">
+            <span class="number">07</span>
+            <span class="greek" lang="grc">ΠΟΛΙΣ</span>
+            <strong>Sociology</strong>
+            <small>City · relation · institution</small>
+          </button>
+        </div>
+      </section>
+
+      <section class="section" id="pinakes" aria-labelledby="archive-title">
+        <header class="section-head">
+          <div class="section-index">III · Pinakes / The indexed archive</div>
+          <div>
+            <h2 id="archive-title">A catalogue is also an <span>argument</span>.</h2>
+            <p class="section-intro">
+              These <i lang="grc">pinakes</i>—index tablets—keep publication date
+              separate from historical period, and prose separate from its sources.
+              Open any record to see the text and its apparatus together.
+            </p>
+          </div>
+        </header>
+
+        <div class="archive-toolbar" id="search" role="search">
+          <div class="field">
+            <label for="query">Search titles, terms, places <span aria-hidden="true">⌘K</span></label>
+            <input
+              id="query"
+              type="search"
+              autocomplete="off"
+              placeholder="e.g. archive, nomos, city"
+            />
+          </div>
+          <div class="field">
+            <label for="subject-filter">Subject</label>
+            <select id="subject-filter">
+              <option value="">All subjects</option>
+              <option value="history">History</option>
+              <option value="literature">Literature</option>
+              <option value="philosophy">Philosophy</option>
+              <option value="music">Music</option>
+              <option value="cinema">Cinema</option>
+              <option value="law">Law</option>
+              <option value="sociology">Sociology</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="language-filter">Language</label>
+            <select id="language-filter">
+              <option value="">All languages</option>
+              <option value="en">English</option>
+              <option value="de">German</option>
+              <option value="fr">French</option>
+            </select>
+          </div>
+          <button class="clear-button" id="clear-filters" type="button">Clear</button>
+        </div>
+        <p class="result-note" id="result-note" aria-live="polite">8 records</p>
+
+        <div class="entries">
+          <details
+            class="entry-record"
+            id="history-inquiry"
+            data-subjects="history philosophy"
+            data-language="en"
+            data-search="history begins inquiry herodotus thucydides halicarnassus athens evidence memory historia"
+          >
+            <summary>
+              <span class="entry-id">HUDA–2026–001</span>
+              <span>
+                <span class="entry-title">History Begins as Inquiry</span>
+                <span class="entry-abstract">
+                  History’s oldest name describes an activity before it describes
+                  a body of knowledge.
+                </span>
+              </span>
+              <span class="summary-meta">
+                <span class="badge">History</span>
+                <span class="badge">Essay</span>
+                <span class="badge language">EN</span>
+              </span>
+            </summary>
+            <div class="entry-body">
+              <article class="prose">
+                <p>
+                  The Greek noun <i lang="grc">historia</i> belongs first to the
+                  world of inquiry: looking, asking, comparing reports, and giving
+                  an account of what one has learned. That origin does not make
+                  Herodotus a modern historian in disguise. It does, however,
+                  recover something easily lost when “history” is reduced to a
+                  sequence of dates. The discipline begins as a relation between a
+                  questioner, witnesses, traces, and a public capable of testing
+                  the resulting account.
+                </p>
+                <p>
+                  Herodotus preserves incompatible explanations and marks where
+                  knowledge thins into report. Thucydides chooses a sterner
+                  economy, scrutinising speeches, causes, and the distortions of
+                  memory. Their procedures differ, but both expose the labour
+                  between an event and its narration. A source is not a transparent
+                  window; it is another historical object, made under pressure and
+                  for an audience.
+                </p>
+                <p>
+                  To begin with inquiry is therefore an ethical choice. It asks us
+                  to distinguish the date on which an account is published from
+                  the period it discusses, to name uncertainty rather than hide it,
+                  and to let evidence resist the elegance of our preferred story.
+                  An archive becomes historical only when its arrangement can be
+                  questioned.
+                </p>
+              </article>
+              <aside class="apparatus" aria-label="Sources and apparatus">
+                <p class="apparatus-title">Sources &amp; apparatus</p>
+                <dl>
+                  <dt>Published</dt>
+                  <dd><time datetime="2026-07-29">29 July 2026</time></dd>
+                  <dt>Discussed period</dt>
+                  <dd>5th century BCE</dd>
+                  <dt>Places</dt>
+                  <dd>Halicarnassus · Athens</dd>
+                  <dt>Terms</dt>
+                  <dd><span lang="grc">ἱστορία</span> · inquiry · testimony</dd>
+                  <dt>Sources</dt>
+                  <dd>
+                    <ol class="source-list">
+                      <li>
+                        <a href="https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0126%3Abook%3D1%3Achapter%3D1%3Asection%3D0">
+                          Herodotus, <i>Histories</i> 1.1, Perseus
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.perseus.tufts.edu/hopper/text?doc=urn%3Acts%3AgreekLit%3Atlg0003.tlg001.perseus-eng3">
+                          Thucydides, <i>History of the Peloponnesian War</i>, Book I
+                        </a>
+                      </li>
+                    </ol>
+                  </dd>
+                </dl>
+              </aside>
+            </div>
+          </details>
+
+          <details
+            class="entry-record"
+            id="margin-reads"
+            data-subjects="literature history"
+            data-language="de"
+            data-search="der rand liest mit margin literature scholia manuscript german deutsch kommentar text saum"
+          >
+            <summary>
+              <span class="entry-id">HUDA–2026–002</span>
+              <span>
+                <span class="entry-title" lang="de">Der Rand liest mit</span>
+                <span class="entry-abstract">
+                  A German note on scholia, manuscript margins, and the visible
+                  history of reading.
+                </span>
+              </span>
+              <span class="summary-meta">
+                <span class="badge">Literature</span>
+                <span class="badge">Scholion</span>
+                <span class="badge language">DE</span>
+              </span>
+            </summary>
+            <div class="entry-body">
+              <article class="prose" lang="de">
+                <p class="editorial-note" lang="en">
+                  Editorial abstract: A margin does not merely surround a text; it
+                  records how a text has been handled, taught, disputed, and
+                  transmitted.
+                </p>
+                <p>
+                  Eine Randbemerkung steht nicht außerhalb des Textes. Sie zeigt,
+                  dass Lesen eine Handlung mit Folgen ist: Ein Wort wird erklärt,
+                  eine Stelle angezweifelt, eine Parallele notiert. In Handschriften
+                  bildet der freie Raum deshalb kein Schweigen. Er ist die sichtbare
+                  Zeit zwischen früheren Sätzen und späteren Lesern.
+                </p>
+                <p>
+                  Die Scholie erinnert außerdem daran, dass Überlieferung selten
+                  eine gerade Linie bildet. Abschreiber, Lehrer und Besitzer
+                  hinterlassen verschiedene Ordnungen auf derselben Seite.
+                  Literaturgeschichte findet nicht nur im Werk statt, sondern auch
+                  in seinen Gebrauchsspuren. Wer den Rand entfernt, macht den Text
+                  sauberer und seine Geschichte ärmer.
+                </p>
+              </article>
+              <aside class="apparatus" aria-label="Quellen und Apparat">
+                <p class="apparatus-title">Sources &amp; apparatus</p>
+                <dl>
+                  <dt>Published</dt>
+                  <dd><time datetime="2026-07-29">29 July 2026</time></dd>
+                  <dt>Language</dt>
+                  <dd>German · English abstract</dd>
+                  <dt>Form</dt>
+                  <dd>Scholion / short note</dd>
+                  <dt>Collections</dt>
+                  <dd>
+                    <ol class="source-list">
+                      <li>
+                        <a href="https://www.homermultitext.org/VenA-Introduction-2014.html">
+                          Homer Multitext, Introduction to the Venetus A
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.homermultitext.org/">
+                          Homer Multitext digital archive
+                        </a>
+                      </li>
+                    </ol>
+                  </dd>
+                </dl>
+              </aside>
+            </div>
+          </details>
+
+          <details
+            class="entry-record"
+            id="logos-relation"
+            data-subjects="philosophy literature"
+            data-language="en"
+            data-search="logos relation reason account word philosophy plato republic language argument"
+          >
+            <summary>
+              <span class="entry-id">HUDA–2026–003</span>
+              <span>
+                <span class="entry-title">Logos Is a Relation, Not a Slogan</span>
+                <span class="entry-abstract">
+                  The difficulty of translating <i lang="grc">logos</i> is a lesson
+                  in intellectual caution.
+                </span>
+              </span>
+              <span class="summary-meta">
+                <span class="badge">Philosophy</span>
+                <span class="badge">Note</span>
+                <span class="badge language">EN</span>
+              </span>
+            </summary>
+            <div class="entry-body">
+              <article class="prose">
+                <p>
+                  <i lang="grc">Logos</i> can name speech, account, argument,
+                  proportion, or reason. No single English equivalent travels
+                  safely through every context. That resistance is useful. It
+                  prevents a celebrated word from becoming a decorative emblem and
+                  returns it to the sentence, speaker, and dispute in which it does
+                  work.
+                </p>
+                <p>
+                  To offer a <i lang="grc">logos</i> is not merely to possess
+                  reason; it is to make something answerable. An account relates a
+                  claim to grounds, a part to a whole, and a speaker to listeners
+                  who may object. Rationality, on this view, is less a private
+                  substance than a public discipline of relation.
+                </p>
+                <p>
+                  Translation should therefore preserve alternatives long enough
+                  to ask which one the passage can bear. A glossary is a beginning,
+                  not a verdict.
+                </p>
+              </article>
+              <aside class="apparatus" aria-label="Sources and apparatus">
+                <p class="apparatus-title">Sources &amp; apparatus</p>
+                <dl>
+                  <dt>Discussed period</dt>
+                  <dd>Classical Greece and afterlives</dd>
+                  <dt>Term</dt>
+                  <dd><span lang="grc">λόγος</span></dd>
+                  <dt>Sources</dt>
+                  <dd>
+                    <ol class="source-list">
+                      <li>
+                        <a href="https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n63772/">
+                          LSJ entry for λόγος, Scaife ATLAS
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://plato.stanford.edu/entries/heraclitus/">
+                          “Heraclitus,” Stanford Encyclopedia of Philosophy
+                        </a>
+                      </li>
+                    </ol>
+                  </dd>
+                </dl>
+              </aside>
+            </div>
+          </details>
+
+          <details
+            class="entry-record"
+            id="muses-listening"
+            data-subjects="music philosophy"
+            data-language="fr"
+            data-search="écouter muses musique mousike french français rythme education poetry ancient greece"
+          >
+            <summary>
+              <span class="entry-id">HUDA–2026–004</span>
+              <span>
+                <span class="entry-title" lang="fr">Écouter avec les Muses</span>
+                <span class="entry-abstract">
+                  A French fragment on <i lang="grc">mousikē</i> before “music”
+                  became an autonomous art.
+                </span>
+              </span>
+              <span class="summary-meta">
+                <span class="badge">Music</span>
+                <span class="badge">Fragment</span>
+                <span class="badge language">FR</span>
+              </span>
+            </summary>
+            <div class="entry-body">
+              <article class="prose" lang="fr">
+                <p class="editorial-note" lang="en">
+                  Editorial abstract: The older field of <i>mousikē</i> binds
+                  melody to poetry, rhythm, memory, and education.
+                </p>
+                <p>
+                  Écouter la <i lang="grc">mousikē</i> comme si elle désignait
+                  seulement la musique moderne, c’est découper trop vite. Le mot
+                  rassemble des pratiques placées sous le signe des Muses : chant,
+                  poésie, rythme, apprentissage et mémoire. La performance n’y est
+                  pas un supplément du texte ; elle est une manière de le faire
+                  exister dans le temps.
+                </p>
+                <p>
+                  Cette largeur ancienne ne fournit pas un modèle à restaurer. Elle
+                  pose plutôt une question à nos catégories : qu’entendons-nous
+                  moins bien lorsque les arts sont rangés dans des salles séparées ?
+                  Une histoire de l’écoute doit suivre les institutions aussi bien
+                  que les sons.
+                </p>
+              </article>
+              <aside class="apparatus" aria-label="Sources et appareil">
+                <p class="apparatus-title">Sources &amp; apparatus</p>
+                <dl>
+                  <dt>Language</dt>
+                  <dd>French · English abstract</dd>
+                  <dt>Term</dt>
+                  <dd><span lang="grc">μουσική</span></dd>
+                  <dt>Source</dt>
+                  <dd>
+                    <ol class="source-list">
+                      <li>
+                        <a href="https://www.metmuseum.org/essays/music-in-ancient-greece">
+                          “Music in Ancient Greece,” The Met
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0168%3Abook%3D3%3Apage%3D401">
+                          Plato, <i>Republic</i> 3.401, Perseus
+                        </a>
+                      </li>
+                    </ol>
+                  </dd>
+                </dl>
+              </aside>
+            </div>
+          </details>
+
+          <details
+            class="entry-record"
+            id="cut-thinks"
+            data-subjects="cinema literature"
+            data-language="en"
+            data-search="the cut thinks cinema montage image eikon film editing sequence archive argument"
+          >
+            <summary>
+              <span class="entry-id">HUDA–2026–005</span>
+              <span>
+                <span class="entry-title">The Cut Thinks</span>
+                <span class="entry-abstract">
+                  Film does not merely show images; it reasons through the interval
+                  between them.
+                </span>
+              </span>
+              <span class="summary-meta">
+                <span class="badge">Cinema</span>
+                <span class="badge">Essay</span>
+                <span class="badge language">EN</span>
+              </span>
+            </summary>
+            <div class="entry-body">
+              <article class="prose">
+                <p>
+                  In <i>Battleship Potemkin</i>, meaning does not wait inside an
+                  isolated image. It is produced between images: boots descending,
+                  faces recoiling, bodies falling, a pram moving through broken
+                  space. Eisenstein’s montage compresses and expands time, repeats
+                  gestures, and turns collision into argument.
+                </p>
+                <p>
+                  The Odessa Steps sequence is not documentary evidence of a filmed
+                  massacre; it is a constructed political scene whose force comes
+                  from editing. That distinction makes the film more, not less,
+                  useful. It teaches viewers to ask how sequence governs judgment:
+                  which shot supplies a cause, which creates an analogy, which
+                  converts an individual face into a collective emblem?
+                </p>
+                <p>
+                  Montage exposes cinema as an art of arrangement, yet seamless
+                  editing can hide the same power. Every cut distributes attention
+                  and responsibility. To watch critically is to notice not only
+                  what an image shows, but what the film has placed before and
+                  after it.
+                </p>
+              </article>
+              <aside class="apparatus" aria-label="Sources and apparatus">
+                <p class="apparatus-title">Sources &amp; apparatus</p>
+                <dl>
+                  <dt>Form</dt>
+                  <dd>Close reading · 1925</dd>
+                  <dt>Term</dt>
+                  <dd><span lang="grc">εἰκών</span> · image / likeness</dd>
+                  <dt>Film references</dt>
+                  <dd>
+                    <ol class="source-list">
+                      <li>
+                        <a href="https://www.moma.org/collection/works/305815">
+                          <i>Battleship Potemkin</i> (1925), MoMA
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.bfi.org.uk/film/9c02c20b-1487-52c8-bbfc-0849e204fe59/battleship-potemkin">
+                          <i>Battleship Potemkin</i>, BFI
+                        </a>
+                      </li>
+                    </ol>
+                  </dd>
+                </dl>
+              </aside>
+            </div>
+          </details>
+
+          <details
+            class="entry-record"
+            id="nomos-code"
+            data-subjects="law history philosophy"
+            data-language="en"
+            data-search="nomos law custom statute code judgment athens constitution institution rule"
+          >
+            <summary>
+              <span class="entry-id">HUDA–2026–006</span>
+              <span>
+                <span class="entry-title">Nomos: Before the Rule Becomes a Code</span>
+                <span class="entry-abstract">
+                  Law occupies the unstable passage between inherited practice and
+                  articulated rule.
+                </span>
+              </span>
+              <span class="summary-meta">
+                <span class="badge">Law</span>
+                <span class="badge">Essay</span>
+                <span class="badge language">EN</span>
+              </span>
+            </summary>
+            <div class="entry-body">
+              <article class="prose">
+                <p>
+                  <i lang="grc">Nomos</i> can indicate law, custom, convention, or
+                  an established distribution. Its range warns against imagining a
+                  clean beginning at the moment a rule is written down. Institutions
+                  inherit practices before they codify them, and codification
+                  changes the practice it claims merely to record.
+                </p>
+                <p>
+                  Written law can make a norm public, portable, and contestable. It
+                  can also conceal the judgments required to apply general words to
+                  singular lives. Between custom and statute stands interpretation:
+                  who may speak, which precedent counts, and what kind of equality
+                  the rule presumes.
+                </p>
+                <p>
+                  Legal history should keep that interval open. A code is an event
+                  in the life of a norm, not the whole life. Its margins include
+                  procedure, enforcement, refusal, and the people for whom the
+                  promised universality did not arrive.
+                </p>
+              </article>
+              <aside class="apparatus" aria-label="Sources and apparatus">
+                <p class="apparatus-title">Sources &amp; apparatus</p>
+                <dl>
+                  <dt>Discussed period</dt>
+                  <dd>Classical Athens; conceptual afterlives</dd>
+                  <dt>Term</dt>
+                  <dd><span lang="grc">νόμος</span></dd>
+                  <dt>Source</dt>
+                  <dd>
+                    <ol class="source-list">
+                      <li>
+                        <a href="https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionaries.v1%3Alsj-n71005/">
+                          LSJ entry for νόμος, Scaife ATLAS
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.perseus.tufts.edu/hopper/artifact?name=Athens%2C+Stoa+Basileios+%28Royal+Stoa%29&amp;object=Building">
+                          Athens, Royal Stoa, Perseus artifact record
+                        </a>
+                      </li>
+                    </ol>
+                  </dd>
+                </dl>
+              </aside>
+            </div>
+          </details>
+
+          <details
+            class="entry-record"
+            id="city-method"
+            data-subjects="sociology history"
+            data-language="en"
+            data-search="city door sociology philadelphia seventh ward du bois survey map institution race urban"
+          >
+            <summary>
+              <span class="entry-id">HUDA–2026–007</span>
+              <span>
+                <span class="entry-title">The City, Door by Door</span>
+                <span class="entry-abstract">
+                  W. E. B. Du Bois made Philadelphia’s Seventh Ward legible by
+                  joining empirical precision to historical argument.
+                </span>
+              </span>
+              <span class="summary-meta">
+                <span class="badge">Sociology</span>
+                <span class="badge">Field note</span>
+                <span class="badge language">EN</span>
+              </span>
+            </summary>
+            <div class="entry-body">
+              <article class="prose">
+                <p>
+                  In 1896, W. E. B. Du Bois began a house-to-house investigation of
+                  Philadelphia’s Seventh Ward. He combined interviews with
+                  archival research, statistics, observation, institutional
+                  records, and maps, then published <i>The Philadelphia Negro</i>
+                  in 1899.
+                </p>
+                <p>
+                  The method refused the abstraction of a “social problem”
+                  detached from people and place. It documented households, work,
+                  housing, education, health, organisations, and the barriers
+                  produced by racial discrimination. At the same time, its
+                  schedules and categories remind us that social knowledge is
+                  never innocent: every survey decides what can be counted and
+                  which explanations become visible.
+                </p>
+                <p>
+                  Du Bois’s achievement is not a fantasy of neutral data. It is the
+                  more demanding union of empirical precision and historical
+                  argument. The city becomes legible neither from a distant theory
+                  nor from anecdote alone, but through patient movement between
+                  doorstep, archive, table, map, and claim.
+                </p>
+              </article>
+              <aside class="apparatus" aria-label="Sources and apparatus">
+                <p class="apparatus-title">Sources &amp; apparatus</p>
+                <dl>
+                  <dt>Form</dt>
+                  <dd>Research note · 1896–1899</dd>
+                  <dt>Terms</dt>
+                  <dd>survey · map · institution</dd>
+                  <dt>Source</dt>
+                  <dd>
+                    <ol class="source-list">
+                      <li>
+                        <a href="https://onlinebooks.library.upenn.edu/webbin/book/lookupid?key=olbp33011">
+                          Du Bois, <i>The Philadelphia Negro</i>, Penn
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://archives.upenn.edu/exhibits/penn-people/biography/william-edward-burghardt-du-bois/">
+                          W. E. B. Du Bois, Penn University Archives
+                        </a>
+                      </li>
+                    </ol>
+                  </dd>
+                </dl>
+              </aside>
+            </div>
+          </details>
+
+          <details
+            class="entry-record"
+            id="catalogue-argument"
+            data-subjects="history literature sociology"
+            data-language="en"
+            data-search="catalogue argument pinakes callimachus library alexandria archive index classification metadata"
+          >
+            <summary>
+              <span class="entry-id">HUDA–2026–008</span>
+              <span>
+                <span class="entry-title">A Catalogue Is an Argument</span>
+                <span class="entry-abstract">
+                  Every index creates neighbourhoods, absences, and paths through
+                  knowledge.
+                </span>
+              </span>
+              <span class="summary-meta">
+                <span class="badge">History</span>
+                <span class="badge">Scholion</span>
+                <span class="badge language">EN</span>
+              </span>
+            </summary>
+            <div class="entry-body">
+              <article class="prose">
+                <p>
+                  A catalogue appears to stand behind its books, neutral and
+                  serviceable. Yet every field is a decision. Names are regularised;
+                  disputed dates become sortable; one subject receives a shelf
+                  while another survives as a keyword. The index does not only
+                  retrieve a collection. It gives the collection a shape.
+                </p>
+                <p>
+                  The lost <i lang="grc">Pinakes</i> associated with Callimachus at
+                  Alexandria matter here less as an intact ancient model—they are
+                  not intact—than as a reminder that bibliography has a history.
+                  Classification reflects institutions, available evidence, and
+                  ideas about which distinctions deserve permanence.
+                </p>
+                <p>
+                  Good metadata should therefore be explicit enough to criticise.
+                  HUDA separates publication date from discussed period and keeps
+                  sources beside prose so that its own arrangement remains visible.
+                </p>
+              </article>
+              <aside class="apparatus" aria-label="Sources and apparatus">
+                <p class="apparatus-title">Sources &amp; apparatus</p>
+                <dl>
+                  <dt>Discussed period</dt>
+                  <dd>Hellenistic Alexandria; digital present</dd>
+                  <dt>Term</dt>
+                  <dd><span lang="grc">πίνακες</span> · tablets / lists</dd>
+                  <dt>Research reference</dt>
+                  <dd>
+                    <ol class="source-list">
+                      <li>
+                        <a href="https://www.britannica.com/biography/Callimachus-Greek-poet-and-scholar">
+                          Callimachus, <i>Encyclopaedia Britannica</i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.loc.gov/bibliographic-future/">
+                          Bibliographic Framework Initiative, Library of Congress
+                        </a>
+                      </li>
+                    </ol>
+                  </dd>
+                </dl>
+              </aside>
+            </div>
+          </details>
+
+          <p class="empty-state" id="empty-state">
+            No record answers those terms. Clear the filters and begin again.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="about" aria-labelledby="about-title">
+        <header class="section-head">
+          <div class="section-index">IV · Editorial note / About HUDA</div>
+          <div>
+            <h2 id="about-title">An archive should show its <span>seams</span>.</h2>
+          </div>
+        </header>
+        <div class="about-grid">
+          <div>
+            <h3>Neither museum façade nor infinite feed.</h3>
+            <p>
+              HUDA is an independent humanities publication organised around
+              reading, evidence, and durable reference. Its classical vocabulary
+              names editorial functions rather than claiming an unbroken
+              inheritance: the <i>Stoa</i> holds arguments, the <i>Scholia</i>
+              preserve notes, and the <i>Pinakes</i> make the archive inspectable.
+            </p>
+            <p>
+              English is the interface language. Contributions may remain in their
+              original German, French, or other language; each record declares its
+              language and may include an English editorial abstract. Translation
+              is treated as scholarship, not a button.
+            </p>
+          </div>
+          <ol class="principles">
+            <li><span>01</span><div>Distinguish evidence from interpretation.</div></li>
+            <li><span>02</span><div>Name historical period separately from publication date.</div></li>
+            <li><span>03</span><div>Keep sources close to the claim they support.</div></li>
+            <li><span>04</span><div>Preserve uncertainty when certainty would mislead.</div></li>
+            <li><span>05</span><div>Let multilingual texts remain visibly multilingual.</div></li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>HUDA</strong><br />
+        <span>ΜΝΗΜΗ · ΛΟΓΟΣ · ΠΟΙΗΣΙΣ — Memory · Reason · Making</span>
+      </div>
+      <div>
+        <span>Vol. I · <span id="year">2026</span></span><br />
+        <a href="https://github.com/rimoooliii/HUDA">Source &amp; editorial record</a>
+      </div>
+    </footer>
+
+    <script>
+      (() => {
+        const query = document.querySelector("#query");
+        const subject = document.querySelector("#subject-filter");
+        const language = document.querySelector("#language-filter");
+        const clear = document.querySelector("#clear-filters");
+        const records = [...document.querySelectorAll(".entry-record")];
+        const resultNote = document.querySelector("#result-note");
+        const emptyState = document.querySelector("#empty-state");
+
+        const applyFilters = () => {
+          const terms = query.value.trim().toLocaleLowerCase();
+          const selectedSubject = subject.value;
+          const selectedLanguage = language.value;
+          let visible = 0;
+
+          records.forEach((record) => {
+            const matchesText = !terms || record.dataset.search.includes(terms);
+            const matchesSubject =
+              !selectedSubject ||
+              record.dataset.subjects.split(" ").includes(selectedSubject);
+            const matchesLanguage =
+              !selectedLanguage || record.dataset.language === selectedLanguage;
+            const show = matchesText && matchesSubject && matchesLanguage;
+            record.hidden = !show;
+            if (show) visible += 1;
+          });
+
+          resultNote.textContent = `${visible} ${visible === 1 ? "record" : "records"}`;
+          emptyState.classList.toggle("visible", visible === 0);
+        };
+
+        [query, subject, language].forEach((control) => {
+          control.addEventListener("input", applyFilters);
+          control.addEventListener("change", applyFilters);
+        });
+
+        clear.addEventListener("click", () => {
+          query.value = "";
+          subject.value = "";
+          language.value = "";
+          applyFilters();
+          query.focus();
+        });
+
+        document.querySelectorAll("[data-filter-subject]").forEach((button) => {
+          button.addEventListener("click", () => {
+            subject.value = button.dataset.filterSubject;
+            applyFilters();
+            document.querySelector("#pinakes").scrollIntoView();
+          });
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+            event.preventDefault();
+            query.focus();
+          }
+        });
+
+        records.forEach((record) => {
+          record.addEventListener("toggle", () => {
+            if (record.open) {
+              history.replaceState(null, "", `#${record.id}`);
+            }
+          });
+        });
+
+        const openHashRecord = () => {
+          const target = document.querySelector(location.hash);
+          if (target?.matches(".entry-record")) target.open = true;
+        };
+
+        window.addEventListener("hashchange", openHashRecord);
+        openHashRecord();
+        document.querySelector("#year").textContent = new Date().getFullYear();
+      })();
+    </script>
+  </body>
+</html>
