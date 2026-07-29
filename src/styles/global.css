@@ -241,6 +241,21 @@ main {
   line-height: 1.55;
 }
 
+.now-note a {
+  color: var(--ink);
+  text-decoration-color: var(--clay);
+}
+
+.now-note time {
+  display: block;
+  margin-top: 0.7rem;
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .writing-home {
   padding-block: clamp(3.5rem, 8vw, 6rem);
 }
@@ -902,7 +917,7 @@ main {
   align-items: baseline;
   justify-content: space-between;
   gap: 2rem;
-  margin-bottom: 5rem;
+  margin-bottom: 2.5rem;
   padding-top: 2rem;
   border-top: 3px solid var(--olive);
   font-family: var(--sans);
@@ -917,6 +932,50 @@ main {
 
 .article-end a {
   flex: 0 0 auto;
+}
+
+.discussion-panel {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.65fr) minmax(18rem, 1.35fr);
+  gap: 2rem 5rem;
+  margin-bottom: 5rem;
+  padding-block: 2.25rem 2.75rem;
+  border-block: 1px solid var(--line-dark);
+}
+
+.discussion-heading h2 {
+  margin: 0.25rem 0 0;
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.discussion-copy {
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--olive);
+}
+
+.discussion-copy p {
+  max-width: 38rem;
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+}
+
+.discussion-link {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+
+.discussion-copy small {
+  display: block;
+  margin-top: 0.55rem;
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 0.65rem;
 }
 
 .site-footer {
@@ -1073,6 +1132,7 @@ main {
   }
 
   .article-end,
+  .discussion-panel,
   .footer-inner {
     align-items: flex-start;
     flex-direction: column;
@@ -1080,6 +1140,12 @@ main {
 
   .article-end {
     padding-bottom: 0;
+  }
+
+  .discussion-panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   .footer-inner {

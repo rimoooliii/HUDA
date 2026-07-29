@@ -5,6 +5,7 @@ export const SITE = {
   description:
     'A personal blog by RIMO about history, literature, philosophy, cinema, music, law, and social life.',
   github: 'https://github.com/rimoooliii',
+  repository: 'https://github.com/rimoooliii/HUDA',
   mottoGreek: 'ΜΝΗΜΗ · ΛΟΓΟΣ · ΠΟΙΗΣΙΣ',
   mottoEnglish: 'Memory · Reason · Making',
 } as const;

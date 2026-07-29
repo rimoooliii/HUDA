@@ -12,6 +12,12 @@ const { data } = entry;
 const slug = writingSlug(entry);
 const canonical = new URL(withBase(`/writing/${slug}/`), Astro.site);
 const minutes = readingMinutes(entry.body ?? '');
+const discussionParams = new URLSearchParams({
+  title: `Discussion: ${data.title}`,
+  body: `This thread accompanies RIMO’s essay “${data.title}”: ${canonical}\n\nQuestions, objections, counterexamples, and relevant sources are welcome.`,
+});
+const discussionUrl = data.discussion ?? `${SITE.repository}/issues/new?${discussionParams.toString()}`;
+const hasDiscussion = Boolean(data.discussion);
 const contexts = [
   data.period ? ['Period', data.period] : null,
   data.places?.length ? ['Places', data.places.join(' · ')] : null,
@@ -113,6 +119,23 @@ const structuredData = {
       <a href={SITE.github} rel="author">Find RIMO on GitHub →</a>
     </footer>
   </article>
+
+  <section class="discussion-panel page-frame" id="discussion" aria-labelledby="discussion-title">
+    <div class="discussion-heading">
+      <p class="eyebrow">After reading</p>
+      <h2 id="discussion-title">Discussion</h2>
+    </div>
+    <div class="discussion-copy">
+      <p>
+        Questions, objections, counterexamples, and relevant sources are welcome. The conversation
+        is public and moderated on GitHub.
+      </p>
+      <a class="discussion-link" href={discussionUrl} rel="external">
+        {hasDiscussion ? 'Join the discussion on GitHub' : 'Start the discussion on GitHub'} →
+      </a>
+      <small>A GitHub account is required to post.</small>
+    </div>
+  </section>
 
   <script>
     import '../scripts/sidenotes';

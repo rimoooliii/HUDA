@@ -22,8 +22,20 @@ const recent = entries.filter((entry) => entry.id !== featured?.id).slice(0, 4);
         <a class="text-link" href={SITE.github}>RIMO on GitHub →</a>
       </div>
       <aside class="now-note" aria-label="Current status">
-        <span>Now</span>
-        <p>HUDA is ready for RIMO’s first published piece. New writing will appear here.</p>
+        {featured ? (
+          <>
+            <span>Latest publication</span>
+            <p>
+              <a href={withBase(`/writing/${writingSlug(featured)}/`)}>{featured.data.title}</a>
+            </p>
+            <time datetime={featured.data.date.toISOString()}>{formatDate(featured.data.date)}</time>
+          </>
+        ) : (
+          <>
+            <span>Now</span>
+            <p>HUDA is ready for RIMO’s first published piece. New writing will appear here.</p>
+          </>
+        )}
       </aside>
     </section>
 
