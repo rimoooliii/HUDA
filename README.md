@@ -8,6 +8,13 @@ Personal essays and notes by **RIMO**.
 HUDA is an Astro static site hosted on GitHub Pages. Writing is stored as
 Markdown and published at stable URLs under `/writing/`.
 
+## Publishing documentation
+
+For a detailed, non-technical walkthrough of publishing through the GitHub
+website—including metadata, images, footnotes/sidenotes, drafts, deployment
+checks, and troubleshooting—read the
+**[中文手动上传与发布文章指南](docs/ARTICLE_PUBLISHING_GUIDE.zh-CN.md)**.
+
 ## Add a piece
 
 Create `src/content/writing/your-slug.md`:
