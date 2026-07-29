@@ -12,12 +12,6 @@ const { data } = entry;
 const slug = writingSlug(entry);
 const canonical = new URL(withBase(`/writing/${slug}/`), Astro.site);
 const minutes = readingMinutes(entry.body ?? '');
-const discussionParams = new URLSearchParams({
-  title: `Discussion: ${data.title}`,
-  body: `This thread accompanies RIMO’s essay “${data.title}”: ${canonical}\n\nQuestions, objections, counterexamples, and relevant sources are welcome.`,
-});
-const discussionUrl = data.discussion ?? `${SITE.repository}/issues/new?${discussionParams.toString()}`;
-const hasDiscussion = Boolean(data.discussion);
 const contexts = [
   data.period ? ['Period', data.period] : null,
   data.places?.length ? ['Places', data.places.join(' · ')] : null,
@@ -130,12 +124,34 @@ const structuredData = {
         Questions, objections, counterexamples, and relevant sources are welcome. The conversation
         is public and moderated on GitHub.
       </p>
-      <a class="discussion-link" href={discussionUrl} rel="external">
-        {hasDiscussion ? 'Join the discussion on GitHub' : 'Start the discussion on GitHub'} →
-      </a>
-      <small>A GitHub account is required to post.</small>
+      <div class="giscus" aria-label="Article comments"></div>
+      <noscript>
+        <p class="discussion-noscript">
+          JavaScript is required for embedded comments. You can still
+          <a href={`${SITE.repository}/discussions`} rel="external">join the discussion on GitHub</a>.
+        </p>
+      </noscript>
     </div>
   </section>
+
+  <script
+    is:inline
+    src="https://giscus.app/client.js"
+    data-repo={SITE.giscus.repository}
+    data-repo-id={SITE.giscus.repositoryId}
+    data-category={SITE.giscus.category}
+    data-category-id={SITE.giscus.categoryId}
+    data-mapping="pathname"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="noborder_light"
+    data-lang={data.language}
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
 
   <script>
     import '../scripts/sidenotes';

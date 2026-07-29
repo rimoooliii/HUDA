@@ -963,19 +963,21 @@ main {
   font-size: 0.96rem;
 }
 
-.discussion-link {
-  display: inline-block;
-  font-family: var(--sans);
-  font-size: 0.84rem;
-  font-weight: 500;
+.giscus {
+  min-height: 13rem;
+  margin-top: 1.5rem;
 }
 
-.discussion-copy small {
-  display: block;
-  margin-top: 0.55rem;
+.giscus-frame {
+  width: 100%;
+  color-scheme: light;
+}
+
+.discussion-noscript {
+  margin-top: 1.25rem !important;
   color: var(--ink-soft);
-  font-family: var(--mono);
-  font-size: 0.65rem;
+  font-family: var(--sans);
+  font-size: 0.8rem !important;
 }
 
 .site-footer {

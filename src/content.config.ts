@@ -30,7 +30,6 @@ const writing = defineCollection({
       places: z.array(z.string().trim().min(1)).default([]),
       terms: z.array(z.string().trim().min(1)).default([]),
       sources: z.array(sourceSchema).default([]),
-      discussion: z.url().optional(),
       featured: z.boolean().default(false),
       start_here: z.boolean().default(false),
       draft: z.boolean().default(false),
