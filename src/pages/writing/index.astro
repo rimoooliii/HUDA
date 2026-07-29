@@ -1,0 +1,118 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { formatDate, withBase, writingSlug } from '../../lib/site';
+
+const entries = (await getCollection('writing', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const topics = [...new Set(entries.flatMap(({ data }) => data.topics))].sort();
+---
+
+<BaseLayout title="Writing" description="Essays and notes by RIMO on the humanities and social sciences.">
+  <div class="writing-page page-frame">
+    <header class="page-header">
+      <p class="eyebrow">Writing</p>
+      <h1>Essays, notes, and inquiries.</h1>
+      <p class="page-deck">
+        Every published piece has a permanent page. Filter by subject when the catalogue grows.
+      </p>
+    </header>
+
+    {entries.length === 0 ? (
+      <div class="empty-state writing-empty">
+        <p class="empty-mark" aria-hidden="true">¶</p>
+        <div>
+          <h2>No writing has been published yet.</h2>
+          <p>RIMO’s first piece will appear here without placeholder articles or invented archives.</p>
+          <a href={withBase('/rss.xml')}>Follow the RSS feed →</a>
+        </div>
+      </div>
+    ) : (
+      <>
+        <section class="writing-tools" aria-label="Filter writing">
+          <label>
+            <span>Search</span>
+            <input type="search" placeholder="Title, subject, or term" data-writing-search />
+          </label>
+          {topics.length > 0 && (
+            <div class="topic-filters" aria-label="Filter by topic">
+              <button type="button" data-topic="all" aria-pressed="true">
+                All <span>{entries.length}</span>
+              </button>
+              {topics.map((topic) => (
+                <button type="button" data-topic={topic} aria-pressed="false">
+                  {topic} <span>{entries.filter(({ data }) => data.topics.includes(topic)).length}</span>
+                </button>
+              ))}
+            </div>
+          )}
+          <p class="result-count" aria-live="polite">
+            Showing <strong data-result-count>{entries.length}</strong> {entries.length === 1 ? 'piece' : 'pieces'}
+          </p>
+        </section>
+
+        <ol class="writing-list" data-writing-list>
+          {entries.map((entry) => (
+            <li
+              data-writing-item
+              data-topics={entry.data.topics.join('|').toLowerCase()}
+              data-search={[
+                entry.data.title,
+                entry.data.description,
+                ...entry.data.topics,
+                ...entry.data.tags,
+                ...entry.data.terms,
+              ].join(' ').toLowerCase()}
+            >
+              <article>
+                <div class="entry-meta">
+                  <time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date)}</time>
+                  <span>{entry.data.kind}</span>
+                  {entry.data.topics[0] && <span>{entry.data.topics[0]}</span>}
+                </div>
+                <h2><a href={withBase(`/writing/${writingSlug(entry)}/`)}>{entry.data.title}</a></h2>
+                <p>{entry.data.description}</p>
+              </article>
+            </li>
+          ))}
+        </ol>
+        <p class="no-results" data-no-results hidden>No pieces match this filter.</p>
+      </>
+    )}
+  </div>
+
+  {entries.length > 0 && (
+    <script>
+      const search = document.querySelector<HTMLInputElement>('[data-writing-search]');
+      const items = [...document.querySelectorAll<HTMLElement>('[data-writing-item]')];
+      const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-topic]')];
+      const count = document.querySelector<HTMLElement>('[data-result-count]');
+      const empty = document.querySelector<HTMLElement>('[data-no-results]');
+      let activeTopic = 'all';
+
+      const applyFilters = () => {
+        const query = search?.value.trim().toLowerCase() ?? '';
+        let visible = 0;
+        items.forEach((item) => {
+          const topics = item.dataset.topics?.split('|') ?? [];
+          const matchesTopic = activeTopic === 'all' || topics.includes(activeTopic);
+          const matchesQuery = !query || item.dataset.search?.includes(query);
+          const show = Boolean(matchesTopic && matchesQuery);
+          item.hidden = !show;
+          if (show) visible += 1;
+        });
+        if (count) count.textContent = String(visible);
+        if (empty) empty.hidden = visible !== 0;
+      };
+
+      search?.addEventListener('input', applyFilters);
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          activeTopic = button.dataset.topic ?? 'all';
+          buttons.forEach((candidate) => candidate.setAttribute('aria-pressed', String(candidate === button)));
+          applyFilters();
+        });
+      });
+    </script>
+  )}
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+---
+
+<BaseLayout title="About" description="About HUDA, RIMO’s personal humanities and social-science blog.">
+  <article class="simple-page page-frame">
+    <header>
+      <p class="eyebrow">About</p>
+      <h1>HUDA is RIMO’s personal blog.</h1>
+      <p class="page-deck">
+        A place for essays and notes across history, literature, philosophy, cinema, music,
+        law, and sociology.
+      </p>
+    </header>
+
+    <div class="simple-prose">
+      <p>
+        The name stays deliberately open. HUDA is not an institute, journal, or imagined academy.
+        It is one person’s public notebook: a place to follow questions across disciplines while
+        keeping arguments, sources, and revisions visible.
+      </p>
+      <h2>Reading here</h2>
+      <p>
+        Each piece has its own permanent address. Longer essays keep dates and terms near the
+        opening, references at the end, and notes beside the relevant sentence when the screen
+        allows it.
+      </p>
+      <h2>Contact</h2>
+      <p>
+        The only public contact for this site is <a href={SITE.github}>RIMO’s GitHub profile</a>.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

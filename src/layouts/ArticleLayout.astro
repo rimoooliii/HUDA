@@ -1,0 +1,120 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import { SITE, formatDate, readingMinutes, withBase, writingSlug } from '../lib/site';
+
+interface Props {
+  entry: CollectionEntry<'writing'>;
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+const slug = writingSlug(entry);
+const canonical = new URL(withBase(`/writing/${slug}/`), Astro.site);
+const minutes = readingMinutes(entry.body ?? '');
+const contexts = [
+  data.period ? ['Period', data.period] : null,
+  data.places?.length ? ['Places', data.places.join(' · ')] : null,
+  data.terms?.length ? ['Terms', data.terms.join(' · ')] : null,
+  data.language !== 'en' ? ['Language', data.language.toUpperCase()] : null,
+].filter(Boolean) as [string, string][];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: data.title,
+  description: data.description,
+  datePublished: data.date.toISOString(),
+  dateModified: (data.updated ?? data.date).toISOString(),
+  author: {
+    '@type': 'Person',
+    name: SITE.author,
+    url: SITE.github,
+  },
+  mainEntityOfPage: canonical.toString(),
+  inLanguage: data.language,
+  keywords: [...data.topics, ...data.tags, ...data.terms].join(', '),
+};
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  lang={data.language}
+  canonical={canonical}
+  type="article"
+>
+  <Fragment slot="head">
+    <meta property="article:published_time" content={data.date.toISOString()} />
+    {data.updated && <meta property="article:modified_time" content={data.updated.toISOString()} />}
+    {data.topics.map((topic) => <meta property="article:tag" content={topic} />)}
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </Fragment>
+
+  <article class="article-page">
+    <header class="article-header page-frame">
+      <a class="back-link" href={withBase('/writing/')}>← All writing</a>
+      <p class="article-kicker">
+        <span>{data.kind}</span>
+        {data.topics[0] && <span>{data.topics[0]}</span>}
+      </p>
+      <h1>{data.title}</h1>
+      <p class="article-deck">{data.description}</p>
+      <div class="article-byline">
+        <span>By <a href={SITE.github} rel="author">RIMO</a></span>
+        <span>Published <time datetime={data.date.toISOString()}>{formatDate(data.date)}</time></span>
+        {data.updated && (
+          <span>Updated <time datetime={data.updated.toISOString()}>{formatDate(data.updated)}</time></span>
+        )}
+        <span>{minutes} min read</span>
+      </div>
+      {contexts.length > 0 && (
+        <dl class="article-context">
+          {contexts.map(([label, value]) => (
+            <div>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+    </header>
+
+    <div class="article-canvas">
+      <div class="prose" data-article-body>
+        <slot />
+
+        {data.sources.length > 0 && (
+          <section class="sources" aria-labelledby="sources-heading">
+            <h2 id="sources-heading">Sources and further reading</h2>
+            <ol>
+              {data.sources.map((source) => (
+                <li>
+                  {source.url ? <a href={source.url}>{source.label}</a> : source.label}
+                  {source.note && <span> — {source.note}</span>}
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        <details class="citation">
+          <summary>Cite this page</summary>
+          <p>
+            RIMO, “{data.title},” <em>HUDA</em>, {formatDate(data.date)}, <a href={canonical}>{canonical}</a>.
+          </p>
+        </details>
+      </div>
+      <aside class="sidenote-rail" data-sidenote-rail aria-label="Sidenotes"></aside>
+    </div>
+
+    <footer class="article-end page-frame">
+      <p><strong>RIMO</strong> writes HUDA, a personal notebook for the humanities and social sciences.</p>
+      <a href={SITE.github} rel="author">Find RIMO on GitHub →</a>
+    </footer>
+  </article>
+
+  <script>
+    import '../scripts/sidenotes';
+  </script>
+</BaseLayout>

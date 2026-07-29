@@ -1,20 +1,50 @@
-# HUDA — A Modern Stoa
+# HUDA
 
-**ΜΝΗΜΗ · ΛΟΓΟΣ · ΠΟΙΗΣΙΣ**  
-*Memory · Reason · Making*
+Personal essays and notes by **RIMO**.
 
-[Visit the published site](https://rimoooliii.github.io/HUDA/)
+[Visit the site](https://rimoooliii.github.io/HUDA/) ·
+[Contact RIMO on GitHub](https://github.com/rimoooliii)
 
-HUDA is an English-first, multilingual-friendly publication for history, literature, philosophy, music, cinema, law, and sociology.
+HUDA is an Astro static site hosted on GitHub Pages. Writing is stored as
+Markdown and published at stable URLs under `/writing/`.
 
-Its classical vocabulary names editorial functions rather than supplying decoration:
+## Add a piece
 
-- **The Stoa** holds essays and arguments.
-- **Scholia** preserve notes, fragments, quotations, and links.
-- **Pinakes** make the archive searchable and inspectable.
+Create `src/content/writing/your-slug.md`:
 
-The first edition includes eight sourced records in English, German, and French, with subject and language filters, keyboard search, permanent entry anchors, and a marginal scholarly apparatus.
+```md
+---
+title: "Title"
+description: "One sentence explaining the piece."
+date: 2026-07-29
+author: RIMO
+language: en
+kind: essay
+topics: [history]
+tags: []
+period: "Optional historical period"
+places: []
+terms: []
+sources: []
+draft: false
+---
 
-## Publishing
+The article begins here.[^note]
 
-The site is a dependency-free static page served from the repository root through GitHub Pages. Changes committed to `main` are published automatically.
+[^note]: A source or explanatory note.
+```
+
+Standard Markdown footnotes become right-margin sidenotes on wide screens and
+click-to-expand notes on narrow screens. Without JavaScript, they remain normal
+endnotes.
+
+## Commands
+
+```sh
+npm install
+npm run check
+npm run build
+npm run dev
+```
+
+Commits to `main` are built and deployed by GitHub Actions.
