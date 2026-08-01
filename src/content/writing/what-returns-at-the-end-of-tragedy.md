@@ -1,7 +1,8 @@
 ---
-title: "What, If Anything, Returns at the End of Tragedy?"
-description: "Closure, irreversible loss, and the comic possibility of going on."
+title: "What Returns at the End of Tragedy?"
+description: "Closure, irreparable loss, and a limited comparison with comedy."
 date: 2026-07-29
+updated: 2026-08-01
 author: RIMO
 language: en
 kind: essay
@@ -22,179 +23,135 @@ terms:
   - settlement
   - repair
   - reconciliation
-  - tragic recognition
+  - recognition
+sources:
+  - label: "Aristotle, Poetics"
+    url: "https://classics.mit.edu/Aristotle/poetics.1.1.html"
+    note: "S. H. Butcher's public-domain translation; Malcolm Heath's 1996 Penguin translation is cited in the notes."
+  - label: "Sophocles, Oedipus the King"
+    url: "https://classics.mit.edu/Sophocles/oedipus.html"
+    note: "Translated by F. Storr."
+  - label: "Sophocles, Antigone"
+    url: "https://classics.mit.edu/Sophocles/antigone.html"
+    note: "Translated by R. C. Jebb."
+  - label: "Aeschylus, Eumenides"
+    url: "https://classics.mit.edu/Aeschylus/eumendides.html"
+    note: "Translated by E. D. A. Morshead."
+  - label: "Hegel's Aesthetics"
+    url: "https://plato.stanford.edu/entries/hegel-aesthetics/"
+    note: "Stephen Houlgate's account in the Stanford Encyclopedia of Philosophy."
+  - label: "Shakespeare, King Lear, 5.3"
+    url: "https://www.folger.edu/explore/shakespeares-works/king-lear/read/5/3/"
+    note: "Folger Shakespeare Library edition."
+  - label: "Shakespeare, Twelfth Night, 5.1"
+    url: "https://www.folger.edu/explore/shakespeares-works/twelfth-night/read/5/1/"
+    note: "Folger Shakespeare Library edition."
+  - label: "Craig Jendza, Paracomedy"
+    url: "https://doi.org/10.1093/oso/9780190090937.001.0001"
+    note: "Oxford University Press, 2020."
+  - label: "Matthew C. Farmer, Tragedy on the Comic Stage"
+    note: "Oxford University Press, 2017."
 featured: true
 start_here: true
 draft: false
 ---
 
-Tragedies often end with public acts. A ruler is named, a verdict delivered, a body buried, a crime understood, a lament sung. Because these acts bring the performance to a close, it is tempting to say that tragedy ends by restoring order.
+Tragedies often end with public acts. A ruler is named, a verdict delivered, a body buried, a crime understood. Because these acts close the performance, it is tempting to say that tragedy restores order.
 
-That claim is too easy. A plot can become complete while the world it represents remains damaged. The truth can emerge after it has lost the power to prevent disaster. A state can acquire a new ruler without becoming just. A funeral can give grief a public form without compensating the dead. Even when a final settlement is achieved, it may be a new and contested arrangement rather than the return of an older harmony.
+The word *order* blurs several different outcomes. A plot can end while the world it represents remains damaged. The truth can emerge too late to prevent disaster. A court can stop a cycle of vengeance without making its judgment just. Succession can keep a state alive without redeeming the dead.
 
-The word *order* hides these differences. The first task, then, is not to decide whether order returns, but to ask what kind of order is at issue, for whom it counts as order, and what it leaves unrepaired.
+The argument here concerns four tragedies, *Oedipus the King*, *Antigone*, the *Oresteia*, and *King Lear*, with *Twelfth Night* as a comic comparison. Five works cannot define the full history of either genre. They can, however, expose a recurring problem: an ending may settle what happens next without repairing the loss that made settlement necessary.[^scope]
 
-This essay argues that tragedy is not best understood as a movement from disorder back to order. Its more characteristic movement is from action to belated intelligibility: a conflict reaches a point at which it can be judged, narrated, or contained, but only after an irreversible loss has exposed the limits of the settlement. Comedy also produces closure, yet it usually treats roles, desires, and social rules as revisable enough for shared life to resume. The distinction is neither absolute nor timeless; tragedy and comedy are historically changing genres, not metaphysical substances.[^1] Still, the contrast identifies a durable difference in what their endings ask an audience to accept.
+## Four Kinds of Ending
 
-## 1. Closure Is Not Restoration
+Four terms need to be kept apart.
 
-Four terms that are often treated as synonyms need to be separated.
+**Closure** means that the represented action has reached an intelligible stopping point. **Settlement** means that the survivors have assigned authority, obligation, or blame. **Repair** means that an injury has been undone or compensated. **Reconciliation** goes further: the opposed parties have reason to accept the settlement.
 
-**Closure** means that an action has reached an intelligible end. **Settlement** means that the survivors have found some way to distribute authority, obligation, or blame. **Repair** means that damage has been undone, compensated, or made bearable to those who suffered it. **Reconciliation** goes further: it presents the outcome as one that the conflicting parties, or the audience, have reason to affirm.
+These are working distinctions for this essay, not definitions borrowed from Aristotle or Hegel. They let us ask what an ending accomplishes without treating plot, politics, and justice as the same thing.
 
-An ending may provide the first two without the last two. This is why “order returns” is a poor general description of tragedy. It does not tell us whether the order is:
+Aristotle supplies the first distinction. In the *Poetics*, tragedy imitates a serious and complete action, and plot is the arrangement of its incidents. A whole action has a beginning, middle, and end; complex plots turn on reversal and recognition.[^aristotle-plot] These claims concern the construction of the represented action. They do not say that the society inside the play regains a former moral or political equilibrium.
 
-- formal—the plot has acquired a beginning, middle, and end;
-- epistemic—what happened and who is responsible have become known;
-- institutional—a court, throne, or civic procedure can now govern the aftermath;
-- normative—the outcome is shown to be just;
-- ritual—the community has found words, gestures, or ceremonies for loss.
+Formal closure therefore tells us that the plotted action is complete. Political settlement and moral repair require separate arguments.
 
-These forms of order do not rise and fall together. One may be secured by sacrificing another. A clear verdict can rest on an unstable law; a stable succession can ratify injustice; an illuminating recognition can arrive too late to save anyone. Tragedy repeatedly exploits the gap between making an event intelligible and making it right.
+## *Oedipus the King*: The Inquiry Ends
 
-Aristotle helps establish the first of these distinctions. In the *Poetics*, tragedy imitates a serious and complete action, and plot is the arrangement of its incidents. Completeness belongs in the first instance to the made work: the action must form a whole rather than stop arbitrarily.[^2] Aristotle does not thereby claim that the society represented in the work returns to equilibrium. Formal wholeness is an achievement of composition, not evidence that the fictional world has been healed.
+*Oedipus the King* begins with plague. Apollo has ordered Thebes to remove the pollution left by the unpunished murder of Laius, and Oedipus undertakes to identify the killer. The inquiry eventually identifies Oedipus himself as Laius's killer and as the son of Laius and Jocasta. Aristotle accordingly treats the play as a model of recognition joined to reversal.[^oedipus-recognition]
 
-This point matters because the shape of a tragedy may be most exact where the damage within it is greatest. Art can give a disaster a boundary that the people inside the disaster never experience as restoration.
+The inquiry reaches an answer after the decisive injuries have occurred. Laius is dead. Jocasta kills herself. Oedipus blinds himself. Knowledge connects events that had appeared accidental or unrelated, but it does not reverse them.
 
-## 2. *Oedipus the King*: Truth Without Repair
+Even the political and ritual aftermath remains partly open. The play does not show the plague ending. Oedipus asks for exile, but Creon refuses to act until he has consulted the god.[^oedipus-ending] The ending secures a truthful account of identity and responsibility; it withholds evidence that truth has repaired the losses it discloses.
 
-*Oedipus the King* begins with a civic emergency. Thebes is afflicted by plague, and Oedipus undertakes an inquiry into the murder of Laius. The investigation promises several kinds of order at once: factual truth, purification, punishment, and the recovery of the city. Its terrible economy lies in making the investigator, the criminal, and the polluted ruler one person.
+This is a claim about this play, not a law that all tragic knowledge must arrive too late. *Oedipus* shows how recognition can complete an inquiry while leaving its practical consequences unresolved.
 
-The play does end ignorance. Testimony converges; Oedipus recognizes his parentage and his acts; the apparent accidents of his life become a connected history. This is an epistemic achievement, and it is inseparable from the formal power that Aristotle locates in reversal and recognition.[^3]
+## *Antigone*: Responsibility Without Reconciliation
 
-But knowledge does not repair what it reveals. Laius remains murdered. Jocasta is dead. Oedipus’s self-blinding does not restore his children’s family or erase the pollution from which the inquiry began. Creon assumes practical authority, while Oedipus asks to be expelled; neither change amounts to moral compensation.
+Hegel reads *Antigone* as a conflict within ethical life. Antigone acts for family obligation and burial; Creon acts for the authority of the state. Each turns a substantial claim into an exclusive one. Their collision destroys both positions, and Hegel finds in that destruction the work of justice and a reconciliation for the audience.[^hegel]
 
-The timing is decisive. Oedipus is not destroyed because truth never arrives. He is destroyed because the truth arrives only after the relevant actions have become irrevocable. Recognition closes the inquiry while opening a life that must be lived under the knowledge it supplies. The ending therefore joins formal completion to practical ruin.
+That is a philosophical interpretation, not a neutral summary of the play. Creon has the power to issue and enforce the burial prohibition. Antigone is his prisoner, taken under guard to a living tomb. He reverses his decision after Tiresias warns him, but the reversal comes too late to prevent the deaths of Antigone, Haemon, and Eurydice. At the end, Creon attributes the deaths to his own conduct.[^antigone]
 
-This pattern is more precise than the claim that order returns. What returns is the possibility of a truthful account. The good that the account might once have protected does not return with it.
+The play clarifies responsibility, but it does not distribute the conflict's burden evenly. Creon commands the coercive power that kills his opponent and survives to acknowledge the result. Antigone cannot participate in the wisdom her death produces.
 
-## 3. Judgment and Its Price: *Antigone* and the *Oresteia*
+Hegel helps us see why rival obligations collide. His language of reconciliation is less convincing if reconciliation must include the people who paid for it. Creon's recognition settles blame; it does not repair the deaths.
 
-Hegel’s account of tragedy is useful because it moves from isolated error to a conflict among forms of ethical life. In his reading of *Antigone*, family obligation and civic authority are not simply good and evil. Antigone and Creon each act for a substantial claim, yet each makes that claim exclusive. Hegel describes the resulting catastrophe as the cancellation of one-sided ethical positions and, more controversially, as a reconciliation with justice.[^4]
+## The *Oresteia*: A Settlement Is Founded
 
-The insight should be retained without turning it into a formula that settles the play in advance. *Antigone* does not distribute suffering evenly. Creon learns that his decree was disastrous, but Antigone, Haemon, and Eurydice cannot participate in the wisdom their deaths produce. The final recognition establishes responsibility; it does not make the outcome fair. The city may continue, and Creon may be chastened, but the play gives no reason to confuse his education with their repair.[^5]
+The *Oresteia* offers a stronger case for institutional settlement. Agamemnon sacrifices Iphigenia; Clytemnestra kills Agamemnon; Orestes kills Clytemnestra. In the *Eumenides*, Athena establishes a court to judge the Furies' charge against Orestes. She casts her vote for him and declares him acquitted when the votes divide equally. The Furies protest the loss of their ancient right before accepting honors and a continuing place in Athens.[^eumenides]
 
-Hegel therefore identifies one real feature of tragedy—the collision of claims that belong to a shared ethical world—but his language of reconciliation can conceal the remainder that tragedy makes visible. If an audience judges that Creon’s position was not merely “one-sided” but backed by political power capable of killing its opponent, then symmetry itself becomes part of what must be questioned.
+The court is founded during the action. It does not restore an institution shown at the trilogy's beginning. Nor does it cleanly replace vengeance with reason. Athena persuades the Furies through promised honors and the prospect of civic power; the new order gives their capacity for fear and punishment a place inside the city.
 
-The *Oresteia* offers a stronger case for institutional settlement. Across the trilogy, retaliatory killing passes from Agamemnon to Clytemnestra to Orestes. In the *Eumenides*, Athena establishes a court to hear the Furies’ accusation against Orestes. When the vote is tied, Orestes is acquitted. The Furies then threaten the city before accepting a place of honor within it. The ending combines trial, persuasion, cult, and procession.[^6]
+The verdict also carries a contestable premise. Athena justifies her vote by declaring her allegiance to the male and describing herself as a father's child. The court ends Orestes' pursuit, but its founding argument values paternal and maternal claims unequally.[^athena-vote]
 
-This is not the restoration of an order that existed before the murders. The court is founded in response to the failure of blood vengeance to end itself. A new institution is produced.
+The ending works as a political and ritual settlement: it provides a procedure, a verdict, and a place for the powers that threatened Athens. Its effectiveness does not make its terms immune from criticism. The dead do not return, and the institution cannot erase the violence that called it into being.
 
-Nor does the institution simply abolish the older powers. The Furies’ authority over kin-murder cannot be dismissed without danger; it must be accommodated. Their incorporation reveals that the new civic arrangement depends on forces it cannot wholly rationalize or defeat. Law does not replace violence in a clean historical sequence. It redirects some violence into procedure, preserves fear as a support of judgment, and secures consent through honors and a place in the city.
+## *King Lear*: Succession Without Redemption
 
-The result is real but limited. Athens gains a court and a protective cult. Orestes gains acquittal. Yet Iphigenia, Agamemnon, Clytemnestra, and the other dead are not restored, and the grounds of the acquittal remain open to criticism. The trilogy’s ending is best described as a political and ritual settlement whose authority is inseparable from the losses and exclusions that made it necessary.
+At the end of *King Lear*, Edmund's treachery has been exposed and Edgar has defeated him. Lear has already entered carrying Cordelia's body when Albany announces that friends will receive the wages of virtue and enemies the cup of their deserving. Lear's lament interrupts that formula immediately.[^lear]
 
-## 4. When Settlement Shrinks to Survival: *King Lear*
+The sequence matters. Albany still speaks the language of moral distribution and political repair, but Cordelia's death makes those promises inadequate to the scene before him. After Lear dies, Albany asks Edgar and Kent to rule and sustain the "gored state." Kent answers that he expects to follow his master in death.
 
-Some tragedies resist even the qualified reconciliation that Hegel finds in Greek drama. *King Lear* ends with the defeat of Edmund, Goneril, and Regan. Their plots have been exposed; legitimate authority appears ready to pass to the survivors. Albany briefly announces a conventional moral distribution: friends will receive the reward of virtue and enemies the consequence of wrongdoing.
+The play leaves a possible succession. Someone may govern, and the state may continue. It does not show succession compensating Lear or Cordelia. Political continuity survives alongside personal ruin; the first does not redeem the second.
 
-Then Lear enters carrying Cordelia’s body.
+## Comedy and Revisable Conflict
 
-The sequence matters. The play places the language of political and moral settlement beside a loss that makes such language sound inadequate. Albany offers to restore Lear’s power, but there is no longer a life in which that restoration could matter. He later calls on Edgar and Kent to rule and “sustain” the “gored state,” but Kent expects to follow Lear in death, and Edgar’s final speech promises neither renewal nor providential explanation. The survivors inherit a damaged polity and the duty to speak from what they have endured.[^7]
+Aristotle's surviving account of comedy is too brief to support a complete genre theory. The *Poetics* associates the laughable with error or ugliness that is not painful or destructive. Elsewhere Aristotle contrasts tragic killing with a pattern in which enemies leave as friends and no one is killed.[^aristotle-comedy] These remarks direct attention to preventable destruction and continued association, but they do not define everything comedy can contain. Greek tragedy and comedy also borrowed language, characters, plots, and staging from one another.[^genre-borrowing]
 
-Here, narrative and political closure are reduced to their minimum. Someone must remain to govern; the stage must empty; the dead must be carried away. None of this shows that the losses were necessary for a higher justice. Cordelia’s death is especially resistant to compensation because the play has already staged reconciliation between father and daughter. The good that might have made suffering bearable appears—and is then taken away.
+*Twelfth Night* offers a useful comparison because recognition changes what the characters can still do. Viola's identity is disclosed, the twins are reunited, and the play prepares the unions of Viola with Orsino and Sebastian with Olivia. The central confusions are revised before they become fatal.
 
-The ending of *Lear* therefore exposes a limit within the idea of tragic order. Succession may prevent immediate chaos, but succession is not redemption. The state continues because history must continue, not because the catastrophe has been justified.
+Malvolio prevents that ending from becoming a picture of universal harmony. The final scene reveals that he was confined as a madman because of a forged letter. He promises revenge, Olivia admits that he has been "most notoriously abused," and Orsino orders the others to pursue him and seek peace.[^twelfth-night] Peace with Malvolio remains a task after he leaves the stage.
 
-This is also where the audience’s position becomes important. A tragic performance can turn isolated pain into shared attention. Through speech, song, gesture, and collective witnessing, suffering becomes publicly apprehensible. In Greek tragedy, the chorus was not merely a commentator standing outside the action; its musical and civic dimensions joined dramatic representation to a collective performance.[^8] Nietzsche, from a very different theoretical starting point, likewise treats tragic art as enabling affirmation in the presence of destruction rather than as proving that destruction serves a moral plan.[^9]
+The play creates a practicable future for its central couples without including everyone on equal terms. Comic continuation can coexist with an unresolved injury. The difference from the tragedies examined here lies in timing and revisability: recognition rearranges the principal relationships while shared life is still possible.
 
-But public form is not the same as cure. Lament can honor the dead, preserve the terms of a conflict, and prevent loss from being reduced to private misfortune. Its achievement is to make mourning shareable without pretending that mourning reverses death.
+## What the Comparison Supports
 
-## 5. Comedy and the Revisability of Conflict
+Irreversibility and revisability are questions to ask of these endings, not definitions of tragedy and comedy. We can ask whether recognition arrives before or after the decisive injury; whether a character can abandon a role or purpose and continue acting; and whether the final institution repairs an injury or governs its aftermath.
 
-If tragedy is not simply disorder followed by order, comedy cannot be defined as the genre that restores what tragedy destroys. Aristotle’s surviving remarks offer only partial guidance. He associates the comic with error or ugliness that is not painful or destructive and contrasts tragic killing with plots in which enemies can leave as friends.[^10] These observations identify a tendency, not a sufficient definition. Comedies contain cruelty, exclusion, humiliation, and threats of violence; tragic works contain jokes, recognitions, and survivors.
+In *Oedipus*, recognition explains an accomplished disaster. In *Antigone*, Creon's reversal follows the deaths his decree helped produce. The *Oresteia* founds a court that ends a pursuit on contestable terms. *King Lear* leaves succession to survive the family it is meant to govern. In *Twelfth Night*, recognition reorganizes the central relationships in time for most of the principal figures to enter a shared future, although Malvolio's injury remains unresolved.
 
-A better contrast concerns whether the conflict remains revisable.
+These plays support neither the claim that tragedy restores order nor the claim that it leaves only disorder. Their endings produce knowledge, judgment, procedure, and succession. Each achievement must be judged separately from the fact that the action has ended.
 
-Comedy often begins with blocked desire, mistaken identity, rigid authority, or incompatible rules. Its action discovers that people can change partners, names, costumes, households, promises, or social positions without making continued life impossible. Northrop Frye describes the typical comic movement as the emergence of a new society around the resolution of the plot.[^11] The value of this account is not that every comedy ends in marriage or universal harmony. It is that comic closure normally asks what rearrangement will permit social action to resume.
+The tragedies examined here place an irreversible injury beside whatever settlement survives it. *Twelfth Night* allows social rearrangement before its central confusions become fatal, yet it does not eliminate every grievance. The comparison is limited, but it sharpens the question. At the end of a play, we should ask what has been settled, who can live within that settlement, and what remains beyond repair.
 
-*Twelfth Night* makes both the force and the limit of that pattern visible. Recognition releases Viola from her disguise, redistributes desire, and prepares two marriages. The comic mechanism turns bewilderment into new relations. Yet Malvolio refuses incorporation. After the others explain the deception practiced on him, he leaves with a promise of revenge. Olivia admits that he has been “notoriously abused,” and Orsino orders that he be pursued and asked to make peace. Peace has not been achieved; it is an unfinished task. The Fool’s final song adds that the rain continues after the pairing and celebration.[^12]
+[^scope]: The comparison is deliberately limited to the five works named here. For evidence that Greek tragedy and comedy exchanged devices rather than occupying sealed formal domains, see Craig Jendza, [*Paracomedy: Appropriations of Comedy in Greek Tragedy*](https://doi.org/10.1093/oso/9780190090937.001.0001) (Oxford University Press, 2020), and Matthew C. Farmer, *Tragedy on the Comic Stage* (Oxford University Press, 2017).
 
-The ending is comic not because everyone is reconciled, but because enough roles have become negotiable for a shared future to open. Its remainder is real: Malvolio’s injury shows that a comic community may achieve flexibility for its central figures by expelling or subordinating someone else. Comedy should not be confused with justice.
+[^aristotle-plot]: Aristotle, *Poetics*, trans. Malcolm Heath (Penguin, 1996), chs. 6-7 and 10-11, 1449b24-1452a38. See also S. H. Butcher's public-domain translation, [parts 6-11](https://classics.mit.edu/Aristotle/poetics.1.1.html).
 
-Hegel makes a related point at the level of character. His genuinely comic figure can survive the failure of a purpose because the self is not exhausted by that purpose. The tragic figure, by contrast, binds identity so fully to a claim or action that its collapse becomes self-destruction.[^13] This distinction explains something that a simple happy-ending test misses. Comic freedom is the capacity to lose one’s project without losing the possibility of another life.
+[^oedipus-recognition]: Sophocles, [*Oedipus the King*](https://classics.mit.edu/Sophocles/oedipus.html), trans. F. Storr; Aristotle, *Poetics*, chs. 11 and 14, 1452a22-33 and 1453b25-33.
 
-That capacity can belong to a plot, a person, or a community. It is also unevenly distributed. One character’s reintegration may require another’s exclusion. The serious question at the end of a comedy is therefore not merely “Who is married?” but “Who can enter the new arrangement, under what terms, and who pays for its coherence?”
+[^oedipus-ending]: Sophocles, *Oedipus the King*, exodos. Oedipus requests exile, and Creon defers action pending divine authorization. The extant play stages neither the end of the plague nor the completed exile.
 
-## 6. A Difference of Pressure, Not a Sealed Boundary
+[^hegel]: G. W. F. Hegel, *Aesthetics: Lectures on Fine Art*, trans. T. M. Knox, vol. 2 (Clarendon, 1975), 1173, 1198, and 1212-15. Stephen Houlgate summarizes the family-state conflict, one-sided ethical action, justice, and reconciliation in ["Hegel's Aesthetics," sec. 8](https://plato.stanford.edu/entries/hegel-aesthetics/#DraPoe).
 
-Tragedy and comedy have always borrowed from one another. Greek tragedy could appropriate comic language, staging, characters, and plot devices; later tragicomedy made generic mixture explicit.[^14] No single ending, emotion, or body count can police the boundary.
+[^antigone]: Sophocles, [*Antigone*](https://classics.mit.edu/Sophocles/antigone.html), trans. R. C. Jebb, from Tiresias's warning through the exodos.
 
-The distinction proposed here is therefore diagnostic rather than absolute. It can be tested with four questions:
+[^eumenides]: Aeschylus, [*Eumenides*](https://classics.mit.edu/Aeschylus/eumendides.html), trans. E. D. A. Morshead, trial scene and final procession.
 
-1. Does recognition arrive in time to alter the decisive action, or only in time to explain it?
-2. Can characters relinquish a role, claim, or desire without losing the conditions of a future?
-3. Does the final institution repair the injury, contain it, or merely survive it?
-4. Does the ending invite us to inhabit a new arrangement, or primarily to judge the price by which any arrangement remains?
+[^athena-vote]: Aeschylus, *Eumenides*, trial scene. Translations vary, but Athena's stated preference for the male and her account of her parentage are stable features of the passage. The argument concerns that rationale rather than one English wording.
 
-Tragic pressure increases when knowledge is belated, action irreversible, and the surviving settlement unable to absorb its own cost. Comic pressure increases when identities and rules can be recombined before conflict becomes final. A work may place these pressures together. *Twelfth Night* leaves an injured outsider at the edge of festivity; the *Eumenides* uses persuasion and procession to turn threatened catastrophe toward civic continuity. The point is not to force each work into a pure box, but to see what kind of future its ending makes possible and what that future refuses to repair.
+[^lear]: William Shakespeare, [*King Lear*, 5.3](https://www.folger.edu/explore/shakespeares-works/king-lear/read/5/3/), Folger Through Line Numbers 3557-3645. Lear enters with Cordelia before Albany's speech at 3610-18; Lear resumes his lament at 3619; Albany's "gored state" proposal and Kent's answer appear at 3636-41.
 
-## Conclusion
+[^aristotle-comedy]: Aristotle, *Poetics*, ch. 5, 1449a32-37, and ch. 13, 1453a30-39. The extant treatise announces but does not supply a full discussion of comedy.
 
-What returns at the end of tragedy? Sometimes truth. Sometimes a line of succession, a legal procedure, a burial, a public language of grief, or the bare capacity of survivors to continue. These achievements matter, but they should not all be called restoration. Often the ending produces an order that did not previously exist. Often that order is partial, contested, or purchased at a price it cannot justify.
+[^genre-borrowing]: Jendza, *Paracomedy*; Farmer, *Tragedy on the Comic Stage*.
 
-The deepest tragic gap is the gap between settlement and repair. A conflict can end while its loss remains active; an event can become intelligible after understanding can no longer save its victims. Tragedy gives this mismatch a form without necessarily resolving it.
-
-Comedy puts pressure elsewhere. It asks whether persons and communities can loosen their attachment to a role, rule, or desire soon enough to avoid irreversible destruction. Its answer may be generous or exclusionary, but it normally opens a field of renewed interaction.
-
-Tragedy asks what a settlement is worth when its price cannot be recovered. Comedy asks whether people can change their parts before the price becomes final.
-
----
-
-## Selected Bibliography
-
-Aeschylus. *Eumenides*. Translated by E. D. A. Morshead. Internet Classics Archive.
-
-Aristotle. *Poetics*. Translated by Malcolm Heath. Penguin Classics, 1996.
-
-Calame, Claude. *Choral Tragedy: Greek Poetics and Musical Ritual*. Translated by Vanessa Casato. Cambridge University Press, 2024.
-
-Frye, Northrop. *Anatomy of Criticism: Four Essays*. Princeton University Press, 1957.
-
-Hegel, G. W. F. *Aesthetics: Lectures on Fine Art*. Translated by T. M. Knox. 2 vols. Clarendon Press, 1975.
-
-Hoxby, Blair. *What Was Tragedy? Theory and the Early Modern Canon*. Oxford University Press, 2015.
-
-Jendza, Craig. *Paracomedy: Appropriations of Comedy in Greek Tragedy*. Oxford University Press, 2020.
-
-Lewis, Rhodri. *Shakespeare’s Tragic Art*. Princeton University Press, 2024.
-
-Nietzsche, Friedrich. *The Birth of Tragedy and Other Writings*. Edited by Raymond Geuss and Ronald Speirs. Translated by Ronald Speirs. Cambridge University Press, 1999.
-
-Shakespeare, William. *King Lear* and *Twelfth Night*. Folger Shakespeare Library online editions.
-
-Shilo, Amit. *Beyond Death in the Oresteia: Poetics, Ethics, and Politics*. Cambridge University Press, 2022.
-
-Sophocles. *Antigone*. Translated by R. C. Jebb. Internet Classics Archive.
-
-Sophocles. *Oedipus the King*. Translated by F. Storr. Internet Classics Archive.
-
-Szondi, Peter. *An Essay on the Tragic*. Translated by Paul Fleming. Stanford University Press, 2002.
-
-[^1]: For the distinction between Aristotle’s poetics of a genre and later philosophies of “the tragic,” see Peter Szondi, *An Essay on the Tragic*, trans. Paul Fleming (Stanford University Press, 2002). On the historical limits of treating post-Kantian tragic theory as a timeless account of the genre, see Blair Hoxby, [*What Was Tragedy? Theory and the Early Modern Canon*](https://academic.oup.com/book/5371) (Oxford University Press, 2015).
-
-[^2]: Aristotle, *Poetics*, trans. Malcolm Heath (Penguin Classics, 1996), chs. 6–7. The relevant claims about complete action and plot can also be consulted in S. H. Butcher’s public-domain translation, [*Poetics*, parts 6–7](https://classics.mit.edu/Aristotle/poetics.1.1.html).
-
-[^3]: Sophocles, [*Oedipus the King*](https://classics.mit.edu/Sophocles/oedipus.html), trans. F. Storr; Aristotle, *Poetics*, chs. 11 and 14. Aristotle treats the play as a central instance of discovery after an unwitting deed.
-
-[^4]: G. W. F. Hegel, *Aesthetics: Lectures on Fine Art*, trans. T. M. Knox, 2 vols. (Clarendon Press, 1975), vol. 2, esp. 1198 and 1213–15. For a concise account locating *Antigone*, the *Oresteia*, tragic “one-sidedness,” and reconciliation in Hegel’s theory, see Stephen Houlgate, [“Hegel’s Aesthetics,” §8](https://plato.stanford.edu/entries/hegel-aesthetics/#DraPoe).
-
-[^5]: Sophocles, [*Antigone*](https://classics.mit.edu/Sophocles/antigone.html), trans. R. C. Jebb, especially the final scene, where Creon accepts responsibility after the deaths of Antigone, Haemon, and Eurydice.
-
-[^6]: Aeschylus, [*Eumenides*](https://classics.mit.edu/Aeschylus/eumendides.html), trans. E. D. A. Morshead, especially the trial and concluding procession. On the continuing agency and ethical-political significance of the dead across the trilogy, see Amit Shilo, [*Beyond Death in the Oresteia: Poetics, Ethics, and Politics*](https://doi.org/10.1017/9781108963862) (Cambridge University Press, 2022).
-
-[^7]: William Shakespeare, [*King Lear*, 5.3](https://www.folger.edu/explore/shakespeares-works/king-lear/read/5/3/), Folger Shakespeare Library, especially Folger Through Line Numbers 3610–45. For a recent account of Shakespearean tragedy as an inquiry into experience that resists rational mastery, see Rhodri Lewis, [*Shakespeare’s Tragic Art*](https://www.jstor.org/stable/jj.13817917) (Princeton University Press, 2024).
-
-[^8]: Claude Calame, [*Choral Tragedy: Greek Poetics and Musical Ritual*](https://doi.org/10.1017/9781009029421), trans. Vanessa Casato (Cambridge University Press, 2024), especially chs. 2–3.
-
-[^9]: Friedrich Nietzsche, *The Birth of Tragedy and Other Writings*, ed. Raymond Geuss and Ronald Speirs, trans. Ronald Speirs (Cambridge University Press, 1999), especially §§7 and 21–24. Nietzsche’s theory is historically speculative and should not be treated as a neutral description of Greek tragic practice.
-
-[^10]: Aristotle, *Poetics*, chs. 5 and 13–14. The surviving text does not contain the promised full treatment of comedy; its brief definitions cannot bear an exhaustive theory of the genre.
-
-[^11]: Northrop Frye, *Anatomy of Criticism: Four Essays* (Princeton University Press, 1957), 163–86.
-
-[^12]: William Shakespeare, [*Twelfth Night*, 5.1](https://www.folger.edu/explore/shakespeares-works/twelfth-night/read/5/1/), Folger Shakespeare Library, especially Folger Through Line Numbers 2581–2634.
-
-[^13]: Hegel, *Aesthetics*, vol. 2, 1199–1201, 1235–37. Hegel distinguishes figures who remain free through the frustration of their aims from merely ridiculous figures, including Malvolio, who cannot join the audience’s laughter at himself.
-
-[^14]: Craig Jendza, [*Paracomedy: Appropriations of Comedy in Greek Tragedy*](https://doi.org/10.1093/oso/9780190090937.001.0001) (Oxford University Press, 2020).
+[^twelfth-night]: William Shakespeare, [*Twelfth Night*, 5.1](https://www.folger.edu/explore/shakespeares-works/twelfth-night/read/5/1/), Folger Through Line Numbers 2428-2614, especially 2589-2606.
